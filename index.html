@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" charset="utf8" defer></script>
+    <title>Draw</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">D R A W</h1>
+        <ul class="navbar">
+            <li class="navbar-item navbar-clickable">Home</li>
+            <li class="navbar-item">|</li>
+            <li class="navbar-item navbar-clickable">Gallery</li>
+            <li class="navbar-item">|</li>
+            <li class="navbar-item navbar-clickable">My Art</li>
+            <li class="navbar-item">|</li>
+            <li class="navbar-item navbar-clickable">How to Play</li>
+            <li class="navbar-item">|</li>
+            <li class="navbar-item sign-in navbar-clickable">Sign In</li>
+        </ul>
+    </header>
+    <div class="play-button-container">
+        <button class="play-button white">D R A W</button>
+    </div>
+    <div class="recent-container">
+        <h2>R E C E N T</h2>
+        <div class="card-container">
+            <div class="card white">
+                <p class="drawing-title">Title</p>
+                <p class="drawing-author">Author</p>
+            </div>
+            <div class="card white">
+                <p class="drawing-title">Title</p>
+                <p class="drawing-author">Author</p>
+            </div>
+            <div class="card white">
+                <p class="drawing-title">Title</p>
+                <p class="drawing-author">Author</p>
+            </div>
+        </div>
+    </div>
+    <div class="drawing-window-container hidden">
+        <div id="backdrop">
+            <div class="white" id="drawing-window">
+                <canvas id="canvas"></canvas>
+                <div class="controls">
+                    <ul class="color-palette">
+                        <li class="color red selected"></li>
+                        <li class="color orange"></li>
+                        <li class="color yellow"></li>
+                        <li class="color green"></li>
+                        <li class="color blue"></li>
+                        <li class="color purple"></li>
+                        <li class="color pink"></li>
+                        <li class="color teal"></li>
+                        <li class="color darkgreen"></li>
+                        <li class="color brown"></li>
+                        <li class="color black"></li>
+                        <li class="color white"></li>
+                    </ul>
+                    <div>UNDO</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
