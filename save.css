@@ -2,15 +2,25 @@
 
 #save-menu-container {
     width: 300px;
-    height: 150px;
+    height: 120px;
     background-color: #fff;
     z-index: 2;
     position: fixed;
     left: 50%;
     top: 50%;
-    margin-top: -75px;
+    margin-top: -60px;
     margin-left: -150px;
     box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+}
+
+#save-menu-items {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "title title"
+                         "author-title author-input"
+                         "title-title title-input"
+                         "cancel confirm";
 }
 
 #save-backdrop {
@@ -24,29 +34,36 @@
 }
 
 #title {
-
+    grid-area: title;
+    text-align: center;
 }
 
 #author-title {
-
+    grid-area: author-title;
+    margin: 5px;
 }
 
 #author-input {
-
+    grid-area: author-input;
+    margin: 5px;
 }
 
-#title-tile {
-
+#title-title {
+    grid-area: title-title;
+    margin: 5px;
 }
 
 #title-input {
-
+    grid-area: title-input;
+    margin: 5px;
 }
 
 #confirm {
-
+    grid-area: confirm;
+    margin: 10px;
 }
 
 #cancel {
-
+    grid-area: cancel;
+    margin: 10px;
 }
