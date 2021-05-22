@@ -1,0 +1,24 @@
+/*Save menu*/
+
+#save-menu-container {
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -75px;
+    margin-left: -150px;
+    box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+}
+
+#save-backdrop {
+    background-color: rgb(0,0,0,25%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+}

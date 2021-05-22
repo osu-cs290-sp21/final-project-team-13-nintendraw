@@ -5,6 +5,9 @@ var saveButton = document.querySelector(".save-button")
 console.log(saveButton)
 
 saveButton.addEventListener('click', function() {
-    var saveMenu = document.querySelector(".save-menu-container")
-    saveMenu.classList.toggle("hidden")
+    var saveBack = document.getElementById("save-backdrop")
+    var saveMenu = document.getElementById("save-menu-container")
+
+    saveMenu.className = "visible"
+    saveBack.className = "visible"
 })
