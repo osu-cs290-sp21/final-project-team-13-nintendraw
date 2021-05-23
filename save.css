@@ -15,12 +15,12 @@
 
 #save-menu-items {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: (300 / 4)px;
     grid-template-rows: auto;
-    grid-template-areas: "title title"
-                         "author-title author-input"
-                         "title-title title-input"
-                         "cancel confirm";
+    grid-template-areas: "title title title title"
+                         "author-title author-input author-input author-input"
+                         "title-title title-input title-input title-input"
+                         "cancel cancel confirm confirm";
 }
 
 #save-backdrop {
@@ -61,9 +61,13 @@
 #confirm {
     grid-area: confirm;
     margin: 10px;
+    width: 100px
+    justify-self: center;
 }
 
 #cancel {
     grid-area: cancel;
     margin: 10px;
+    width: 100px;
+    justify-self: center;
 }
