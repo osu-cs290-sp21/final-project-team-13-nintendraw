@@ -46,7 +46,7 @@ confirmButton.addEventListener("click", function() {
 
 function saveCanvas() {
     // save the canvas with the appropriate meta data
-    var drawing = canvas.toDataURL()
+    var drawing = canvas.toDataURL() // see saveCanvas() functio below
     var title = String(titleName.value)
     var author = String(authorName.value)
 }
@@ -59,4 +59,19 @@ function closeSaveMenu() {
 
     titleName.value = ""
     authorName.value = ""
+}
+
+// you may want to use this function for compatability across different browsers
+function saveCanvas () {
+    var canvas = document.querySelector('#canvas')
+    if (window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
+    } else {
+        const a = document.createElement('a')
+        document.body.appendChild(a)
+        a.href = canvas.toDataURL()
+        a.download = 'canvas-image.png'
+        a.click()
+        document.body.removeChild(a)
+    }
 }
