@@ -1,30 +1,12 @@
-var playButton = document.querySelector('.play-button')
-console.log(playButton)
-var drawSearch = document.getElementById("navbar-search-input");
-$("#navbar-search-input").on("keyup", function() {
-var g = $(this).val();
-$(".recent-container .card-container .card label").each( function() {
-var s = $(this).text();
-if (s.indexOf(g)!=-1) {
-$(this).parent().parent().show();
-}
-else {
-$(this).parent().parent().hide();
-}
-});
-});
-playButton.addEventListener('click', function () {
-    var hiddenThings = document.querySelector('.hidden')
-    hiddenThings.classList.toggle('hidden')
-})
+var size = document.querySelector('#drawing-window').getBoundingClientRect().width
 
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas") // grab the canvas
     const ctx = canvas.getContext('2d')
 
     // Resizing
-    canvas.height = 400
-    canvas.width = 400
+    canvas.height = size
+    canvas.width = size
 
     let painting = false
 
@@ -55,11 +37,5 @@ window.addEventListener('load', () => {
     canvas.addEventListener('mousedown', startPosition)
     canvas.addEventListener('mouseup', finishPosition)
     canvas.addEventListener('mousemove', draw)
-    canvas.addEventListener('mouseout', function () {
-        painting = false
-        ctx.beginPath()
-    })
+
 })
-
-
-
