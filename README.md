@@ -9,6 +9,6 @@ Tasks:
 - Displaying the drawings - JACOB
 - Seperate JS files
 - Timer (custom time) - ADNREW
-- Search function (title, author) - JEFF
+- Search function (title, author) - JEFF (search using name and title)
 
 Try to merge to main so we all have the latest files.
