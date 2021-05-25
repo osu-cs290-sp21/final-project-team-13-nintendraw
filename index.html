@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="save.css">
+
     <script src="index.js" charset="utf8" defer></script>
-	<!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
+    <script src="save.js" charset="utf8" defer></script>
+
     <title>Draw</title>
 </head>
 <body>
@@ -19,17 +21,9 @@
             <li class="navbar-item">|</li>
             <li class="navbar-item navbar-clickable">Gallery</li>
             <li class="navbar-item">|</li>
-            <li class="navbar-item navbar-clickable">My Art</li>
-            <li class="navbar-item">|</li>
             <li class="navbar-item navbar-clickable">How to Play</li>
-            <li class="navbar-item">|</li>
-            <li class="navbar-item sign-in navbar-clickable">Sign In</li>
 
-			<li class="navitem navbar-search">
-            <input type="text" id="navbar-search-input" placeholder="Search...">
-            <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
-          </li>
-	
+            <li class="navbar-item sign-in navbar-clickable">Search</li>
         </ul>
     </header>
     <div class="play-button-container">
@@ -38,9 +32,8 @@
     <div class="recent-container">
         <h2>R E C E N T</h2>
         <div class="card-container">
-		
-            <div class="card">
-               <label> <p class="drawing-title">Title</p></label>
+            <div class="card white">
+                <p class="drawing-title">Title</p>
                 <p class="drawing-author">Author</p>
             </div>
             <div class="card white">
@@ -56,8 +49,31 @@
     <div class="drawing-window-container hidden">
         <div id="backdrop">
             <div class="white" id="drawing-window">
+                <div class="info">
+                    <div class="info-items"></div>
+                    <div class="info-items timer">30</div>
+                    <div class="info-items close clickable">&#10005;</div>
+                </div>
+                <div class="topic">Draw: Dinosaur</div>
                 <canvas id="canvas"></canvas>
                 <div class="controls">
+<<<<<<< HEAD
+                    <div class="color-palette">
+                        <div class="clickable color red selected"></div>
+                        <div class="clickable color orange"></div>
+                        <div class="clickable color yellow"></div>
+                        <div class="clickable color green"></div>
+                        <div class="clickable color blue"></div>
+                        <div class="clickable color purple"></div>
+                        <div class="clickable color pink"></div>
+                        <div class="clickable color cyan"></div>
+                        <div class="clickable color lightgreen"></div>
+                        <div class="clickable color brown"></div>
+                        <div class="clickable color black"></div>
+                        <div class="clickable color white2"></div>
+                    </div>
+                    <div class="clickable clear">CLEAR</div>
+=======
                     <ul class="color-palette">
                         <li class="color red selected"></li>
                         <li class="color orange"></li>
@@ -73,31 +89,35 @@
                         <li class="color white"></li>
                     </ul>
                     <div>UNDO</div>
+                    <div class="save-button-containor white">
+                        <button class="save-button white">Save Drawing</button>
+                    </div>
+>>>>>>> 91ef5949469dd4f50cd75062a831681977ff789d
                 </div>
             </div>
         </div>
     </div>
-	<div> <input type="text" id="search-criteria"/>
-    <input type="button" id="search" value="search"> </div>
-<fieldset>
-    <legend>Invite Facebook Friend</legend>
 
-    <div class="fbbox">
-    <img src="images/User.png" class="fbimg" />
-    <div class="fix"><label for="check-2" class="left"> James </label></div>
-    <input type="checkbox" name="fb" id="check-1" value="action" class="leftcx"/>
-    </div>
+    <div id="save-backdrop" class="hidden white"></div>
+    <div id="save-menu-container" class="hidden white">
+        <div id="save-menu-items" class="hidden white">
+            <div id="title">
+                Enter Image Information:
+            </div>
 
-    <div class="fbbox">
-    <img src="images/User.png" class="fbimg" />
-    <div class="fix"><label for="check-2" class="left">Alan </label></div>
-    <input type="checkbox" name="fb" id="check-2" value="comedy" class="leftcx"/>
-    </div>
+            <div id="author-title">
+                Author:
+            </div>
+            <input type="text" id="author-input" class="white">
 
-    <div class="fbbox">
-    <img src="images/User.png" class="fbimg" />
-    <div class="fix"><label for="check-3" class="left"> Mathew </label></div>
-    <input type="checkbox" name="fb" id="check-3" value="epic" class="leftcx"/>
+            <div id="title-title">
+                Title:
+            </div>
+            <input type="text" id="title-input" class="white">
+
+            <button id="confirm" class="white">Confirm</button>
+            <button id="cancel" class="white">Cancel</button>
+        </div>
     </div>
 </body>
 </html>
