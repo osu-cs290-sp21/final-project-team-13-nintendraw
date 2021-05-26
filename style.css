@@ -44,7 +44,43 @@ header {
     padding-bottom: 16px;
 }
 
-.search {
+.navbar-search {
+  padding: 0;
+  line-height: 38px;
+}
+
+#navbar-search-input {
+
+  padding: 4px;
+  font-size: 16px;
+  background-color: #eee;
+  border: 1px solid #dadada;
+  border-radius: 2px;
+}
+
+#navbar-search-input:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+#navbar-search-button {
+  margin-left: -5px;
+  font-size: 16px;
+  background: none;
+  border: none;
+  color: #343434;
+  cursor: pointer;
+}
+
+#navbar-search-button:hover {
+  color: #319df6;
+}
+
+#navbar-search-button:focus {
+  color: #319df6;
+  outline: none;
+}
+.placeholder {
     margin-left: auto;
 }
 
@@ -241,6 +277,23 @@ header {
 
 .error-container h3 {
     font-weight: normal;
+}
+
+.how-to-play{
+    margin-top:  60px;
+    margin-left: 60px;
+}
+
+.how-to-play h2{
+    font-size:40px;
+    font-weight: 80;
+}
+
+.gallery h2{
+    margin-left: 60px;
+    margin-top: 60px;
+    font-size: 40px;
+    font-weight:80;
 }
 
 .gallery-container{

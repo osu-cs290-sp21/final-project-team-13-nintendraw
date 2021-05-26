@@ -1,3 +1,5 @@
+var twitSearch = document.getElementById("navbar-search-input");
+var twitSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
 
 playButton.addEventListener('click', function () {
@@ -8,6 +10,22 @@ playButton.addEventListener('click', function () {
 var color = "red"
 // ==
 var colorButtons = document.querySelectorAll('.color')
+
+
+function search(event) {
+	var twits = document.getElementsByClassName('card white');
+	for (i = 0; i < 3; i++) {
+		if ((twits[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase())) || (twits[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase()))) {
+			twits[i].classList.remove('hidden');
+			continue;
+		}
+		else {
+			twits[i].classList.add('hidden');
+		}
+	}
+	
+
+}
 
 function toggleSelectedAll () {
     for (var i = 0; i < colorButtons.length; i++) {
@@ -28,6 +46,11 @@ for (var i = 0; i < colorButtons.length; i++) {
 }
 
 // ==
+
+
+
+twitSearchButton.addEventListener('click', search);
+twitSearch.addEventListener('keyup', search);
 
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas") // grab the canvas
