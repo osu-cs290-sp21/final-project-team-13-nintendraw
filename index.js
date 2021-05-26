@@ -1,23 +1,51 @@
+var twitSearch = document.getElementById("navbar-search-input");
+var twitSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
-console.log(playButton)
-var drawSearch = document.getElementById("navbar-search-input");
-$("#navbar-search-input").on("keyup", function() {
-var g = $(this).val();
-$(".recent-container .card-container .card label").each( function() {
-var s = $(this).text();
-if (s.indexOf(g)!=-1) {
-$(this).parent().parent().show();
-}
-else {
-$(this).parent().parent().hide();
-}
-});
-});
+
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
 })
 
+var color = "red"
+// ==
+var colorButtons = document.querySelectorAll('.color')
+
+function search(event) {
+	var twits = document.getElementsByClassName('card white');
+	for (i = 0; i < 3; i++) {
+		if ((twits[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase())) || (twits[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase()))) {
+			twits[i].classList.remove('hidden');
+			continue;
+		}
+		else {
+			twits[i].classList.add('hidden');
+		}
+	}
+	
+
+}
+function toggleSelectedAll () {
+    for (var i = 0; i < colorButtons.length; i++) {
+        colorButtons[i].classList.remove('selected')
+    }
+}
+
+function colorSelect(event) {
+    color = getComputedStyle(event.currentTarget).getPropertyValue('background-color')
+    toggleSelectedAll()
+    event.currentTarget.classList.add('selected')
+}
+
+for (var i = 0; i < colorButtons.length; i++) {
+    for (var i = 0; i < colorButtons.length; i++) {
+        colorButtons[i].addEventListener('click', colorSelect)
+    }
+}
+
+// ==
+twitSearchButton.addEventListener('click', search);
+twitSearch.addEventListener('keyup', search);
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas") // grab the canvas
     const ctx = canvas.getContext('2d')
@@ -42,9 +70,9 @@ window.addEventListener('load', () => {
         if (!painting) {
             return
         }
-        ctx.lineWidth = 5
+        ctx.lineWidth = 8
         ctx.lineCap = "round"
-        ctx.strokeStyle = "red"
+        ctx.strokeStyle = color
 
         ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
         ctx.stroke()
@@ -61,5 +89,37 @@ window.addEventListener('load', () => {
     })
 })
 
+function clear() {
+    const canvas = document.querySelector("#canvas") // grab the canvas
+    const ctx = canvas.getContext('2d')
 
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+}
 
+var clearButton = document.querySelector('.clear')
+clearButton.addEventListener('click', clear)
+
+var closeButton = document.querySelector('.close')
+closeButton.addEventListener('click', function () {
+    clear()
+    var hiddenThings = document.querySelector('.drawing-window-container')
+    hiddenThings.classList.add('hidden')
+    toggleSelectedAll()
+    color = 'red'
+    var red = document.querySelector('.red')
+    red.classList.add('selected')
+})
+
+function saveCanvas () {
+    var canvas = document.querySelector('#canvas')
+    if (window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
+    } else {
+        const a = document.createElement('a')
+        document.body.appendChild(a)
+        a.href = canvas.toDataURL()
+        a.download = 'canvas-image.png'
+        a.click()
+        document.body.removeChild(a)
+    }
+}
