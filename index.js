@@ -3,6 +3,7 @@ var playButton = document.querySelector('.play-button')
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
+    startTimer();
 })
 
 var color = "red"
@@ -106,3 +107,25 @@ function saveCanvas () {
         document.body.removeChild(a)
     }
 }
+
+
+//-------------------
+// Timer Function
+//-------------------
+
+function startTimer(){
+    var time = 5;
+    console.log("Started Timer");
+    var clock=setInterval(function(){
+        document.getElementById("timer").innerHTML=''+time;
+        time--
+        if(time == 0){
+            clearInterval(clock);
+            alert("TIMES UP");
+        }
+        
+     },1000);
+}
+
+
+
