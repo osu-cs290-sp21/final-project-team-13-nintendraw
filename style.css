@@ -16,7 +16,7 @@ h1 {
     padding-bottom: 30px;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: normal;
 }
 
@@ -44,9 +44,10 @@ header {
     padding-bottom: 16px;
 }
 
-.sign-in {
+.search {
     margin-left: auto;
 }
+
 
 .play-button-container {
     display: flex;
@@ -63,7 +64,7 @@ header {
     font-size: 20px;
 }
 
-.play-button:hover, .navbar-clickable:hover, .title:hover, .clickable:hover {
+.play-button:hover, .navbar-clickable:hover, .title:hover, .clickable:hover, button:hover {
     cursor: pointer;
 }
 
@@ -84,7 +85,7 @@ header {
     display: flex;
 }
 
-.recent-container {
+.recent-container, .gallery, .how-to-play {
     margin-left: 40px;
 }
 
@@ -133,6 +134,7 @@ header {
     flex-wrap: wrap;
     width: 60%;
     margin-left: auto;
+    margin-top: 5px;
 }
 
 .controls {
@@ -140,9 +142,12 @@ header {
     padding-bottom: 30px;
 }
 
-.clear {
+.other-controls {
     align-self: center;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .red {
@@ -223,4 +228,40 @@ header {
     margin-left: 40px;
 }
 
-/* == */
+.error-container{
+    margin-top: 60px;
+    text-align: center;
+}
+
+.error-container h2{
+    margin: 15px 0;
+    font-size: 100px;
+    font-weight: normal;
+}
+
+.error-container h3 {
+    font-weight: normal;
+}
+
+.gallery-container{
+    margin-left:60px;
+
+}
+
+.other-control-items {
+    align-self: center;
+}
+
+.clear {
+    margin-bottom: 10px;
+}
+
+.save-button {
+    margin-top: 10px;
+}
+
+button {
+    border: 1px #666666 solid;
+    background-color: white;
+    color: #666666;
+}

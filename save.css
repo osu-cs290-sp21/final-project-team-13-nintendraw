@@ -61,7 +61,7 @@
 #confirm {
     grid-area: confirm;
     margin: 10px;
-    width: 100px
+    width: 100px;
     justify-self: center;
 }
 
