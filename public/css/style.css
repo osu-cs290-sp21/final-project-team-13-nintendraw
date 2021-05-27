@@ -6,6 +6,11 @@ body {
     background-color: #f3f3f3ff;
 }
 
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 h1 {
     background-color: #ffd966ff;
     margin: 0;
