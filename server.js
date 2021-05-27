@@ -14,7 +14,7 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars")
 
-app.get("/", function(req, res, next) {
+app.get(["/", "/home"], function(req, res, next) {
     res.status(200).render("home", {
         title: "Home",
         css: "style",
