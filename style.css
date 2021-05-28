@@ -28,6 +28,8 @@ header {
     margin: 0;
 }
 
+a {text-decoration: none; }
+
 .navbar {
     list-style-type: none;
     display: flex;
@@ -42,7 +44,6 @@ header {
     padding: 8px;
     padding-top: 16px;
     padding-bottom: 16px;
-
 }
 
 .navbar-search {
@@ -85,6 +86,7 @@ header {
     margin-left: auto;
 }
 
+
 .play-button-container {
     display: flex;
     justify-content: center;
@@ -121,7 +123,7 @@ header {
     display: flex;
 }
 
-.recent-container {
+.recent-container, .gallery, .how-to-play {
     margin-left: 40px;
 }
 
@@ -272,7 +274,11 @@ header {
 .error-container h2{
     margin: 15px 0;
     font-size: 100px;
-    font-weight: 120;
+    font-weight: normal;
+}
+
+.error-container h3 {
+    font-weight: normal;
 }
 
 .how-to-play{
