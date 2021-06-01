@@ -1,26 +1,26 @@
-var twitSearch = document.getElementById("navbar-search-input");
-var twitSearchButton = document.getElementById("navbar-search-button")
+var drawingSearch = document.getElementById("navbar-search-input");
+var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
-
+drawingSearchButton.addEventListener('click', search);
+drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
 })
 
 var color = "red"
-// ==
 var colorButtons = document.querySelectorAll('.color')
 
 
 function search(event) {
-	var twits = document.getElementsByClassName('card white');
+	var drawings = document.getElementsByClassName('card white');
 	for (i = 0; i < 3; i++) {
-		if ((twits[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase())) || (twits[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(twitSearch.value.toUpperCase()))) {
-			twits[i].classList.remove('hidden');
+		if ((drawings[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
+			drawings[i].classList.remove('hidden');
 			continue;
 		}
 		else {
-			twits[i].classList.add('hidden');
+			drawings[i].classList.add('hidden');
 		}
 	}
 	
@@ -45,12 +45,6 @@ for (var i = 0; i < colorButtons.length; i++) {
     }
 }
 
-// ==
-
-
-
-twitSearchButton.addEventListener('click', search);
-twitSearch.addEventListener('keyup', search);
 
 window.addEventListener('load', () => {
     const canvas = document.querySelector("#canvas") // grab the canvas
@@ -129,3 +123,4 @@ function saveCanvas () {
         document.body.removeChild(a)
     }
 }
+
