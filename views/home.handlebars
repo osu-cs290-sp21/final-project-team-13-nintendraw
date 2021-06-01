@@ -1,0 +1,75 @@
+<div class="play-button-container">
+    <button class="play-button white">D R A W</button>
+</div>
+<div class="recent-container">
+    <h2>R E C E N T</h2>
+    <div class="card-container">
+        <div class="card white">
+            <p class="drawing-title">Title</p>
+            <p class="drawing-author">Author</p>
+        </div>
+        <div class="card white">
+            <p class="drawing-title">Title</p>
+            <p class="drawing-author">Author</p>
+        </div>
+        <div class="card white">
+            <p class="drawing-title">Title</p>
+            <p class="drawing-author">Author</p>
+        </div>
+    </div>
+</div>
+<div class="drawing-window-container hidden">
+    <div id="backdrop">
+        <div class="white" id="drawing-window">
+            <div class="info">
+                <div class="info-items"></div>
+                <div class="info-items timer">30</div>
+                <div class="info-items close clickable">&#10005;</div>
+            </div>
+            <div class="topic">Draw: Dinosaur</div>
+            <canvas id="canvas"></canvas>
+            <div class="controls">
+                <div class="color-palette">
+                    <div class="clickable color red selected"></div>
+                    <div class="clickable color orange"></div>
+                    <div class="clickable color yellow"></div>
+                    <div class="clickable color green"></div>
+                    <div class="clickable color blue"></div>
+                    <div class="clickable color purple"></div>
+                    <div class="clickable color pink"></div>
+                    <div class="clickable color cyan"></div>
+                    <div class="clickable color lightgreen"></div>
+                    <div class="clickable color brown"></div>
+                    <div class="clickable color black"></div>
+                    <div class="clickable color white2"></div>
+                </div>
+                <div class="other-controls">
+                    <div class="clickable clear other-control-items">CLEAR</div>
+                    <button class="save-button other-control-items">Save Drawing</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="save-backdrop" class="hidden "></div>
+<div id="save-menu-container" class="hidden ">
+    <div id="save-menu-items" class="hidden ">
+        <div id="title">
+            Enter Image Information:
+        </div>
+
+        <div id="author-title">
+            Author:
+        </div>
+        <input type="text" id="author-input" class="">
+
+        <div id="title-title">
+            Title:
+        </div>
+        <input type="text" id="title-input" class="">
+
+        <button id="confirm" class="">Confirm</button>
+        <button id="cancel" class="">Cancel</button>
+    </div>
+</div>
