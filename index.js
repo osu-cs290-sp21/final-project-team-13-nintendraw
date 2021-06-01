@@ -6,6 +6,8 @@ drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
+    startTimer();
+    getTopic();
 })
 
 var color = "red"
@@ -23,7 +25,7 @@ function search(event) {
 			drawings[i].classList.add('hidden');
 		}
 	}
-	
+
 
 }
 
@@ -108,6 +110,7 @@ closeButton.addEventListener('click', function () {
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
+    time = 5;
 })
 
 function saveCanvas () {
@@ -123,4 +126,3 @@ function saveCanvas () {
         document.body.removeChild(a)
     }
 }
-

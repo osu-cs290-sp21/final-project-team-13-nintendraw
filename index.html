@@ -12,7 +12,7 @@
 
 <!-- This 3rd-party stylesheet incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" crossorigin="anonymous">
-	
+
 
     <script src="index.js" charset="utf8" defer></script>
     <script src="save.js" charset="utf8" defer></script>
@@ -35,7 +35,7 @@
             <input type="text" id="navbar-search-input" placeholder="Search...">
             <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
           </li>
-	
+
         </ul>
         </ul>
     </header>
@@ -64,10 +64,11 @@
             <div class="white" id="drawing-window">
                 <div class="info">
                     <div class="info-items"></div>
-                    <div class="info-items timer">30</div>
+                    <div class="info-items timer" id="timer"></div>
+                    <div class="info-items"></div>
                     <div class="info-items close clickable">&#10005;</div>
                 </div>
-                <div class="topic">Draw: Dinosaur</div>
+                <div class="topic" id="draw-topic">Draw:</div>
                 <canvas id="canvas"></canvas>
                 <div class="controls">
                     <div class="color-palette">
@@ -114,6 +115,6 @@
             <button id="cancel" class="">Cancel</button>
         </div>
     </div>
-	
+
 </body>
 </html>
