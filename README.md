@@ -12,13 +12,11 @@ Tasks:
 - Search function (title, author) - JEFF (search using name and title)
 
 Try to merge to main so we all have the latest files.
-
-
-
 ---------------------------------------------------------------------------------------------------------------------------------------
-New Taks
 
--Fix JS
--Get Images saved
--Figure out how to get the images into a from so templates could be used
--Get the images to work on the Gallary and the recent secton of Home
+New Tasks:
+
+ * Fix JS
+ * Get Images saved
+ * Figure out how to get the images into a from so templates could be used
+ * Get the images to work on the Gallary and the recent secton of Home
