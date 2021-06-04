@@ -1,6 +1,7 @@
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
+var time = 5;
 drawingSearchButton.addEventListener('click', search);
 drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
@@ -110,8 +111,12 @@ closeButton.addEventListener('click', function () {
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
-    time = 5;
+    time = 30;
 })
+
+//------------------------
+// Save Function
+//------------------------
 
 function saveCanvas () {
     var canvas = document.querySelector('#canvas')
@@ -125,4 +130,50 @@ function saveCanvas () {
         a.click()
         document.body.removeChild(a)
     }
+}
+
+//-------------------
+// Timer Function
+//-------------------
+
+function startTimer(){
+
+    console.log("Started Timer");
+    var clock=setInterval(function(){
+        document.getElementById("timer").innerHTML=''+time;
+        time--
+        if(time == 0){
+            clearInterval(clock);
+            alert("TIMES UP");
+        }
+
+     },1000);
+}
+
+//------------------
+// Topic Selection
+//-------------------
+
+function getTopic(){
+var dino = ["Trex","Triceratops","Velocoraptor"];
+var pokemon = ["Pikachu","Charmander","Rowlett"];
+var topics = [dino,pokemon];
+//var btn = document.getElementById("draw-topic");
+var min = Math.ceil(0);
+var max = Math.floor(2);
+var timer = document.getElementById("draw-topic");
+var tp = (Math.floor(Math.random()*(max-min)+min));
+console.log(tp);
+console.log(topics[tp])
+//var whichTopic = topics[tp];
+var topicLenght = topics[tp].length;
+
+var newMax = Math.floor(topicLenght);
+
+var draw = (Math.floor(Math.random()*(newMax-min)+min))
+console.log(draw)
+
+var time = topics[tp][draw];
+console.log(time)
+timer.innerHTML='Draw:'+time;
 }
