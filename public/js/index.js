@@ -1,17 +1,18 @@
+var timer = document.querySelector('.timer')
+var timeLeft = 30
+var timerId = setInterval(countdown, 1000)
+
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
-var clock;
-var time = 30;
-//var clock = clock=setInterval(runTimer,1000);
 drawingSearchButton.addEventListener('click', search);
 drawingSearch.addEventListener('keyup', search);
+
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
-    getTopic();
-    clock=setInterval(runTimer,1000);
-    //runTimer(30);
+    timeLeft = 30
+    setTimeout(countdown(), 30000)
 })
 
 var color = "red"
@@ -107,25 +108,16 @@ clearButton.addEventListener('click', clear)
 
 var closeButton = document.querySelector('.close')
 closeButton.addEventListener('click', function () {
-    clear()
-    clearInterval(clock);
-    time = 30;
-    clearTimeout(clock);
-    console.log('stopped timer')
     var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.add('hidden')
     toggleSelectedAll()
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
+    timeLeft = 30
 })
 
-//------------------------
-// Save Function
-//------------------------
-
 function saveCanvas () {
-    clearInterval(interval);
     var canvas = document.querySelector('#canvas')
     if (window.navigator.msSaveBlob) {
         window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
@@ -139,50 +131,28 @@ function saveCanvas () {
     }
 }
 
-//-------------------
-// Timer Function
-//-------------------
+function addCard() {
+    var currCanvas
 
-function runTimer(time){
-  var timer = setTime();
-  console.log('HERE')
-  console.log(clock)
-  document.getElementById("timer").innerHTML=''+timer;
-  if(timer==0){
-    alert('end');
-    clearInterval(clock)
-    console.log(clock)
-    return
+    var canvas = document.querySelector('#canvas')
+    console.log(canvas)
+    var dataURI = canvas.toDataURL()
+    console.log(dataURI)
+
+    var cardContainer = document.querySelector('.card-container')
+    var card = document.createElement('div')
+    card.classList.add('card')
+    card.classList.add('white')
+    card.innerHTML = '<img src="'+ dataURI +'" class="drawing-drawing"><p class="drawing-title">Title</p><p class="drawing-author">Author</p>'
+    cardContainer.appendChild(card)
+}
+
+function countdown() {
+    if (timeLeft == -1) {
+      clearTimeout(timerId)
+    } else {
+      timer.innerHTML = timeLeft
+      timeLeft--
+      console.log(timeLeft)
+    }
   }
-}
-
-function setTime(){
-  return time--;
-}
-//------------------
-// Topic Selection
-//-------------------
-
-function getTopic(){
-var dino = ["Trex","Triceratops","Velocoraptor"];
-var pokemon = ["Pikachu","Charmander","Rowlett"];
-var topics = [dino,pokemon];
-//var btn = document.getElementById("draw-topic");
-var min = Math.ceil(0);
-var max = Math.floor(2);
-var timer = document.getElementById("draw-topic");
-var tp = (Math.floor(Math.random()*(max-min)+min));
-console.log(tp);
-console.log(topics[tp])
-//var whichTopic = topics[tp];
-var topicLenght = topics[tp].length;
-
-var newMax = Math.floor(topicLenght);
-
-var draw = (Math.floor(Math.random()*(newMax-min)+min))
-console.log(draw)
-
-var time = topics[tp][draw];
-console.log(time)
-timer.innerHTML='Draw:'+time;
-}

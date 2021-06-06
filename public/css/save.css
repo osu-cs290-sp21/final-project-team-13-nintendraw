@@ -3,7 +3,7 @@
 #save-menu-container {
     width: 300px;
     height: 120px;
-    background-color: #fff;
+    background-color: white;
     z-index: 2;
     position: fixed;
     left: 50%;

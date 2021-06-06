@@ -17,9 +17,9 @@ var canvas = document.getElementById("canvas")
 
 saveButton.addEventListener('click', function() {
     // open save menu
-    saveMenu.className = "visible"
-    saveBack.className = "visible"
-    saveItems.className = "visible"
+    saveMenu.classList.toggle("hidden")
+    saveBack.classList.toggle("hidden")
+    saveItems.classList.toggle("hidden")
 })
 
 cancelButton.addEventListener("click", function() {
@@ -46,32 +46,32 @@ confirmButton.addEventListener("click", function() {
 
 function saveCanvas() {
     // save the canvas with the appropriate meta data
-    var drawing = canvas.toDataURL() // see saveCanvas() functio below
+    var drawing = canvas.toDataURL() // see saveCanvas() function below
     var title = String(titleName.value)
     var author = String(authorName.value)
 }
 
 function closeSaveMenu() {
     // clear and close save menu
-    saveMenu.className = "hidden"
-    saveBack.className = "hidden"
-    saveItems.className = "hidden"
+    saveMenu.classList.add("hidden")
+    saveBack.classList.add("hidden")
+    saveItems.classList.add("hidden")
 
     titleName.value = ""
     authorName.value = ""
 }
 
 // you may want to use this function for compatability across different browsers
-function saveCanvas () {
-    var canvas = document.querySelector('#canvas')
-    if (window.navigator.msSaveBlob) {
-        window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
-    } else {
-        const a = document.createElement('a')
-        document.body.appendChild(a)
-        a.href = canvas.toDataURL()
-        a.download = 'canvas-image.png'
-        a.click()
-        document.body.removeChild(a)
-    }
-}
+// function saveCanvas () {
+//     var canvas = document.querySelector('#canvas')
+//     if (window.navigator.msSaveBlob) {
+//         window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
+//     } else {
+//         const a = document.createElement('a')
+//         document.body.appendChild(a)
+//         a.href = canvas.toDataURL()
+//         a.download = 'canvas-image.png'
+//         a.click()
+//         document.body.removeChild(a)
+//     }
+// }
