@@ -1,4 +1,4 @@
-var drawingSearch = document.getElementById("navbar-search-input");
+var drawingSearch = document.getElementById("navbar-search-input")
 var drawingSearchButton = document.getElementById("navbar-search-button")
 drawingSearchButton.addEventListener('click', search);
 drawingSearch.addEventListener('keyup', search);

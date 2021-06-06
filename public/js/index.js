@@ -1,14 +1,17 @@
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
-var time = 5;
+var clock;
+var time = 30;
+//var clock = clock=setInterval(runTimer,1000);
 drawingSearchButton.addEventListener('click', search);
 drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
-    startTimer();
     getTopic();
+    clock=setInterval(runTimer,1000);
+    //runTimer(30);
 })
 
 var color = "red"
@@ -105,13 +108,16 @@ clearButton.addEventListener('click', clear)
 var closeButton = document.querySelector('.close')
 closeButton.addEventListener('click', function () {
     clear()
+    clearInterval(clock);
+    time = 30;
+    clearTimeout(clock);
+    console.log('stopped timer')
     var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.add('hidden')
     toggleSelectedAll()
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
-    time = 30;
 })
 
 //------------------------
@@ -119,6 +125,7 @@ closeButton.addEventListener('click', function () {
 //------------------------
 
 function saveCanvas () {
+    clearInterval(interval);
     var canvas = document.querySelector('#canvas')
     if (window.navigator.msSaveBlob) {
         window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
@@ -136,20 +143,35 @@ function saveCanvas () {
 // Timer Function
 //-------------------
 
-function startTimer(){
-
-    console.log("Started Timer");
-    var clock=setInterval(function(){
-        document.getElementById("timer").innerHTML=''+time;
-        time--
-        if(time == 0){
-            clearInterval(clock);
-            alert("TIMES UP");
-        }
-
-     },1000);
+// function runTimer(time){
+//    console.log("Started Timer");
+//    clock=setInterval(function(){
+//        document.getElementById("timer").innerHTML=''+time;
+//        time--
+//        if(time == -1){
+//            clearInterval(clock);
+//            clearTimeout(clock);
+//            alert("TIMES UP");
+//        }
+//
+//     },1000);
+// }
+function runTimer(time){
+  var timer = setTime();
+  console.log('HERE')
+  console.log(clock)
+  document.getElementById("timer").innerHTML=''+timer;
+  if(timer==0){
+    alert('end');
+    clearInterval(clock)
+    console.log(clock)
+    return
+  }
 }
 
+function setTime(){
+  return time--;
+}
 //------------------
 // Topic Selection
 //-------------------
