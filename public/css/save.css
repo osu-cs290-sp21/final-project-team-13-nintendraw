@@ -1,0 +1,73 @@
+/*Save menu*/
+
+#save-menu-container {
+    width: 300px;
+    height: 120px;
+    background-color: #fff;
+    z-index: 2;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -60px;
+    margin-left: -150px;
+    box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+}
+
+#save-menu-items {
+    display: grid;
+    grid-template-columns: (300 / 4)px;
+    grid-template-rows: auto;
+    grid-template-areas: "title title title title"
+                         "author-title author-input author-input author-input"
+                         "title-title title-input title-input title-input"
+                         "cancel cancel confirm confirm";
+}
+
+#save-backdrop {
+    background-color: rgb(0,0,0,25%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 1;
+}
+
+#title {
+    grid-area: title;
+    text-align: center;
+}
+
+#author-title {
+    grid-area: author-title;
+    margin: 5px;
+}
+
+#author-input {
+    grid-area: author-input;
+    margin: 5px;
+}
+
+#title-title {
+    grid-area: title-title;
+    margin: 5px;
+}
+
+#title-input {
+    grid-area: title-input;
+    margin: 5px;
+}
+
+#confirm {
+    grid-area: confirm;
+    margin: 10px;
+    width: 100px;
+    justify-self: center;
+}
+
+#cancel {
+    grid-area: cancel;
+    margin: 10px;
+    width: 100px;
+    justify-self: center;
+}
