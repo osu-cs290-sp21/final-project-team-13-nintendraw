@@ -1,6 +1,6 @@
 var timer = document.querySelector('.timer')
 var timeLeft = 30
-var timerId = setInterval(countdown, 1000)
+var timerId
 
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
@@ -11,8 +11,8 @@ drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
-    timeLeft = 30
-    setTimeout(countdown(), 30000)
+    timerId = setInterval(countdown, 1000)
+    countdown()
 })
 
 var color = "red"
@@ -20,21 +20,21 @@ var colorButtons = document.querySelectorAll('.color')
 
 
 function search(event) {
-	var drawings = document.getElementsByClassName('card white');
-	for (i = 0; i < 3; i++) {
-		if ((drawings[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
-			drawings[i].classList.remove('hidden');
-			continue;
-		}
-		else {
-			drawings[i].classList.add('hidden');
-		}
-	}
+    var drawings = document.getElementsByClassName('card white');
+    for (i = 0; i < 3; i++) {
+        if ((drawings[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
+            drawings[i].classList.remove('hidden');
+            continue;
+        }
+        else {
+            drawings[i].classList.add('hidden');
+        }
+    }
 
 
 }
 
-function toggleSelectedAll () {
+function toggleSelectedAll() {
     for (var i = 0; i < colorButtons.length; i++) {
         colorButtons[i].classList.remove('selected')
     }
@@ -100,7 +100,7 @@ function clear() {
     const canvas = document.querySelector("#canvas") // grab the canvas
     const ctx = canvas.getContext('2d')
 
-    ctx.clearRect(0,0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
 var clearButton = document.querySelector('.clear')
@@ -115,9 +115,10 @@ closeButton.addEventListener('click', function () {
     var red = document.querySelector('.red')
     red.classList.add('selected')
     timeLeft = 30
+    clearInterval(timerId)
 })
 
-function saveCanvas () {
+function saveCanvas() {
     var canvas = document.querySelector('#canvas')
     if (window.navigator.msSaveBlob) {
         window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
@@ -143,16 +144,16 @@ function addCard() {
     var card = document.createElement('div')
     card.classList.add('card')
     card.classList.add('white')
-    card.innerHTML = '<img src="'+ dataURI +'" class="drawing-drawing"><p class="drawing-title">Title</p><p class="drawing-author">Author</p>'
+    card.innerHTML = '<img src="' + dataURI + '" class="drawing-drawing"><p class="drawing-title">Title</p><p class="drawing-author">Author</p>'
     cardContainer.appendChild(card)
 }
 
 function countdown() {
     if (timeLeft == -1) {
-      clearTimeout(timerId)
+        clearTimeout(timerId)
     } else {
-      timer.innerHTML = timeLeft
-      timeLeft--
-      console.log(timeLeft)
+        timer.innerHTML = timeLeft
+        timeLeft--
+        console.log(timeLeft)
     }
-  }
+}
