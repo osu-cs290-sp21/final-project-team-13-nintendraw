@@ -143,19 +143,6 @@ function saveCanvas () {
 // Timer Function
 //-------------------
 
-// function runTimer(time){
-//    console.log("Started Timer");
-//    clock=setInterval(function(){
-//        document.getElementById("timer").innerHTML=''+time;
-//        time--
-//        if(time == -1){
-//            clearInterval(clock);
-//            clearTimeout(clock);
-//            alert("TIMES UP");
-//        }
-//
-//     },1000);
-// }
 function runTimer(time){
   var timer = setTime();
   console.log('HERE')
