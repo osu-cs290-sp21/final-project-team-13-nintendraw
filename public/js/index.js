@@ -1,13 +1,17 @@
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
+var clock;
+var time = 30;
+//var clock = clock=setInterval(runTimer,1000);
 drawingSearchButton.addEventListener('click', search);
 drawingSearch.addEventListener('keyup', search);
 playButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.hidden')
     hiddenThings.classList.toggle('hidden')
-    startTimer();
     getTopic();
+    clock=setInterval(runTimer,1000);
+    //runTimer(30);
 })
 
 var color = "red"
@@ -104,16 +108,24 @@ clearButton.addEventListener('click', clear)
 var closeButton = document.querySelector('.close')
 closeButton.addEventListener('click', function () {
     clear()
+    clearInterval(clock);
+    time = 30;
+    clearTimeout(clock);
+    console.log('stopped timer')
     var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.add('hidden')
     toggleSelectedAll()
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
-    time = 5;
 })
 
+//------------------------
+// Save Function
+//------------------------
+
 function saveCanvas () {
+    clearInterval(interval);
     var canvas = document.querySelector('#canvas')
     if (window.navigator.msSaveBlob) {
         window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
@@ -125,4 +137,52 @@ function saveCanvas () {
         a.click()
         document.body.removeChild(a)
     }
+}
+
+//-------------------
+// Timer Function
+//-------------------
+
+function runTimer(time){
+  var timer = setTime();
+  console.log('HERE')
+  console.log(clock)
+  document.getElementById("timer").innerHTML=''+timer;
+  if(timer==0){
+    alert('end');
+    clearInterval(clock)
+    console.log(clock)
+    return
+  }
+}
+
+function setTime(){
+  return time--;
+}
+//------------------
+// Topic Selection
+//-------------------
+
+function getTopic(){
+var dino = ["Trex","Triceratops","Velocoraptor"];
+var pokemon = ["Pikachu","Charmander","Rowlett"];
+var topics = [dino,pokemon];
+//var btn = document.getElementById("draw-topic");
+var min = Math.ceil(0);
+var max = Math.floor(2);
+var timer = document.getElementById("draw-topic");
+var tp = (Math.floor(Math.random()*(max-min)+min));
+console.log(tp);
+console.log(topics[tp])
+//var whichTopic = topics[tp];
+var topicLenght = topics[tp].length;
+
+var newMax = Math.floor(topicLenght);
+
+var draw = (Math.floor(Math.random()*(newMax-min)+min))
+console.log(draw)
+
+var time = topics[tp][draw];
+console.log(time)
+timer.innerHTML='Draw:'+time;
 }

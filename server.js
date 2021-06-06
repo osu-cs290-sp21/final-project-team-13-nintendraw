@@ -25,6 +25,7 @@ app.get(["/", "/home"], function(req, res, next) {
 app.get("/gallery", function(req, res, next) {
     res.status(200).render("gallery", {
         title: "Gallery",
+        js:'search',
         css: "style"
     })
 })

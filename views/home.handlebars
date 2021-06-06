@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/{{css}}.css">
+<!-- <script type="text/javascript" src="js/{{js}}.js"></script> -->
 <div class="play-button-container">
     <button class="play-button white">D R A W</button>
 </div>
@@ -23,10 +25,10 @@
         <div class="white" id="drawing-window">
             <div class="info">
                 <div class="info-items"></div>
-                <div class="info-items timer">30</div>
+                <div class="info-items timer" id='timer'>30</div>
                 <div class="info-items close clickable">&#10005;</div>
             </div>
-            <div class="topic">Draw: Dinosaur</div>
+            <div class="topic" id='draw-topic'>Draw: Dinosaur</div>
             <canvas id="canvas"></canvas>
             <div class="controls">
                 <div class="color-palette">

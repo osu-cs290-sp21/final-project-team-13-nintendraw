@@ -260,7 +260,6 @@ a {
 }
 
 #timer {
-    margin-left: 115px;
     padding-left:15px;
     text-align: center;
     font-size:large;
@@ -275,7 +274,7 @@ a {
 
 .topic {
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: 0px;
     text-align: center;
 }
 
