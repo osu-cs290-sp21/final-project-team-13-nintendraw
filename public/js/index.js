@@ -13,6 +13,7 @@ playButton.addEventListener('click', function () {
     hiddenThings.classList.toggle('hidden')
     timerId = setInterval(countdown, 1000)
     countdown()
+    getTopic()
 })
 
 var color = "red"
@@ -156,4 +157,26 @@ function countdown() {
         timeLeft--
         console.log(timeLeft)
     }
+}
+
+function getTopic() {
+    var dino = ["Trex", "Triceratops", "Velocoraptor"];
+    var pokemon = ["Pikachu", "Charmander", "Rowlett"];
+    var topics = [dino, pokemon];
+    //var btn = document.getElementById("draw-topic");
+    var min = Math.ceil(0);
+    var max = Math.floor(2);
+    var timer = document.getElementById("draw-topic");
+    var tp = (Math.floor(Math.random() * (max - min) + min));
+    //var whichTopic = topics[tp];
+    var topicLenght = topics[tp].length;
+
+    var newMax = Math.floor(topicLenght);
+
+    var draw = (Math.floor(Math.random() * (newMax - min) + min))
+
+    var time = topics[tp][draw];
+    console.log("the topic is:", time)
+    var topicHtml = document.querySelector('.topic')
+    topicHtml.innerHTML = "Draw: " + time
 }

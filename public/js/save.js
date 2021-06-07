@@ -22,6 +22,13 @@ saveButton.addEventListener('click', function () {
     saveItems.classList.toggle("hidden")
 })
 
+function openSaveMenu() {
+    // open save menu
+    saveMenu.classList.toggle("hidden")
+    saveBack.classList.toggle("hidden")
+    saveItems.classList.toggle("hidden")
+}
+
 cancelButton.addEventListener("click", function () {
     // close and clear save menu
     closeSaveMenu()
