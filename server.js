@@ -54,7 +54,7 @@ app.get("/howToPlay", function (req, res, next) {
 })
 
 app.get("*", function (req, res, next) {
-    res.status(200).render("404", {
+    res.status(404).render("404", {
         title: "404 Error",
         css: "style"
     })

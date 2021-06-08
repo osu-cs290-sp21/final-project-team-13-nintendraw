@@ -205,6 +205,7 @@ closeButton.addEventListener('click', function () {
     red.classList.add('selected')
     timeLeft = 30
     clearInterval(timerId)
+    clear()
 })
 
 function saveCanvas() {
