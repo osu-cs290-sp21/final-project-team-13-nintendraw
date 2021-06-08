@@ -15,6 +15,26 @@ var titleName = document.getElementById("title-input")
 var authorName = document.getElementById("author-input")
 var canvas = document.getElementById("canvas")
 
+var drawingSearch = document.getElementById("navbar-search-input");
+var drawingSearchButton = document.getElementById("navbar-search-button")
+drawingSearchButton.addEventListener('click', search);
+//drawingSearch.addEventListener('keyup', search);
+function search(event) {
+	var drawings = document.getElementsByClassName('card white');
+
+	for (i = 0; i < 8; i++) {
+		
+		if ((drawings[i].childNodes[3].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[5].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
+			drawings[i].classList.remove('hidden');
+			continue;
+		}
+		else {
+			drawings[i].classList.add('hidden');
+		}
+	}
+
+
+}
 saveButton.addEventListener('click', function () {
     // open save menu
     saveMenu.classList.toggle("hidden")
@@ -92,8 +112,7 @@ var timerId
 var drawingSearch = document.getElementById("navbar-search-input");
 var drawingSearchButton = document.getElementById("navbar-search-button")
 var playButton = document.querySelector('.play-button')
-drawingSearchButton.addEventListener('click', search);
-drawingSearch.addEventListener('keyup', search);
+
 
 
 playButton.addEventListener('click', function () {
@@ -108,20 +127,7 @@ var color = "red"
 var colorButtons = document.querySelectorAll('.color')
 
 
-function search(event) {
-    var drawings = document.getElementsByClassName('card white');
-    for (i = 0; i < 3; i++) {
-        if ((drawings[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
-            drawings[i].classList.remove('hidden');
-            continue;
-        }
-        else {
-            drawings[i].classList.add('hidden');
-        }
-    }
 
-
-}
 
 function toggleSelectedAll() {
     for (var i = 0; i < colorButtons.length; i++) {
