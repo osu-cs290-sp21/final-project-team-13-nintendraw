@@ -4,16 +4,20 @@ var exphbs = require('express-handlebars')
 var fs = require('fs')
 
 var drawingData = require('./drawingData.json')
-var recentData = []
-for (var i = 0; i < 5; i++) {
-    recentData.push(drawingData[drawingData.length-1-i])
-}
 
+var recentData = []
+function updateRecent() {
+    for (var i = 0; i < 5; i++) {
+        recentData.push(drawingData[drawingData.length-1-i])
+    }
+}
+updateRecent()
 
 var app = express()
 var port = 8000
 
 app.use(express.static("public"))
+app.use(express.json())
 
 app.engine("handlebars", exphbs({
     defaultLayout: "menuBar",
@@ -22,7 +26,7 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars")
 
-app.post(["/", "/home"], function (req, res, next) {
+app.post("/home", function (req, res, next) {
 })
 
 app.get(["/", "/home"], function (req, res, next) {

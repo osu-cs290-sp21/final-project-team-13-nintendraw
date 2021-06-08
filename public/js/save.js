@@ -15,19 +15,26 @@ var titleName = document.getElementById("title-input")
 var authorName = document.getElementById("author-input")
 var canvas = document.getElementById("canvas")
 
-saveButton.addEventListener('click', function() {
+saveButton.addEventListener('click', function () {
     // open save menu
     saveMenu.classList.toggle("hidden")
     saveBack.classList.toggle("hidden")
     saveItems.classList.toggle("hidden")
 })
 
-cancelButton.addEventListener("click", function() {
+export default function openSaveMenu() {
+    // open save menu
+    saveMenu.classList.toggle("hidden")
+    saveBack.classList.toggle("hidden")
+    saveItems.classList.toggle("hidden")
+}
+
+cancelButton.addEventListener("click", function () {
     // close and clear save menu
     closeSaveMenu()
 })
 
-confirmButton.addEventListener("click", function() {
+confirmButton.addEventListener("click", function () {
     // close, clear, and save the canvas/save menu
     if (titleName.value === "" && authorName.value === "") {
         alert("Both the author and title are empty.")
@@ -35,7 +42,7 @@ confirmButton.addEventListener("click", function() {
     else if (titleName.value === "") {
         alert("The title is empty.")
     }
-    else if(authorName.value === "") {
+    else if (authorName.value === "") {
         alert("The author is empty.")
     }
     else {
