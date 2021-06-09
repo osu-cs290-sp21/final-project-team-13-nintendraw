@@ -1,8 +1,7 @@
 /*Save menu*/
 
 #save-menu-container {
-    width: 300px;
-    height: 120px;
+    padding: 10px;
     background-color: white;
     z-index: 2;
     position: fixed;
@@ -19,7 +18,6 @@
     grid-template-rows: auto;
     grid-template-areas: "title title title title"
                          "author-title author-input author-input author-input"
-                         "title-title title-input title-input title-input"
                          "cancel cancel confirm confirm";
 }
 
@@ -40,22 +38,16 @@
 
 #author-title {
     grid-area: author-title;
-    margin: 5px;
+
 }
 
 #author-input {
     grid-area: author-input;
-    margin: 5px;
+
 }
 
-#title-title {
-    grid-area: title-title;
-    margin: 5px;
-}
-
-#title-input {
-    grid-area: title-input;
-    margin: 5px;
+.save-item {
+    margin: 10px;
 }
 
 #confirm {

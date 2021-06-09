@@ -17,7 +17,7 @@
                 <div class="info-items timer">30</div>
                 <div class="info-items close clickable">&#10005</div>
             </div>
-            <div class="topic">Draw: Dinosaur</div>
+            <div class="topic">Draw: </div>
             <canvas id="canvas"></canvas>
             <div class="controls">
                 <div class="color-palette">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="other-controls">
                     <div class="clickable clear other-control-items">CLEAR</div>
-                    <button class="save-button other-control-items">Send Drawing</button>
+                    <button class="save-button other-control-items hidden">Send Drawing</button>
                 </div>
             </div>
         </div>
@@ -44,21 +44,16 @@
 </div>
 
 <div id="save-backdrop" class="hidden "></div>
-<div id="save-menu-container" class="hidden ">
+<div id="save-menu-container" class="hidden white ">
     <div id="save-menu-items" class="hidden ">
-        <div id="title">
+        <div id="title" class="save-item">
             Enter Image Information:
         </div>
 
-        <div id="author-title">
+        <div id="author-title" class="save-item">
             Author:
         </div>
-        <input type="text" id="author-input" class="">
-
-        <div id="title-title">
-            Title:
-        </div>
-        <input type="text" id="title-input" class="">
+        <input type="text" id="author-input" class="save-item">
 
         <button id="confirm" class="">Confirm</button>
         <button id="cancel" class="">Cancel</button>
