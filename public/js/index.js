@@ -22,7 +22,7 @@ function search(event) {
 	var drawings = document.getElementsByClassName('card white');
 
 	for (i = 0; i < 8; i++) {
-		
+
 		if ((drawings[i].childNodes[3].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[5].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
 			drawings[i].classList.remove('hidden');
 			continue;
@@ -234,10 +234,7 @@ closeButton.addEventListener('click', function () {
     timeLeft = 30
     clearInterval(timerId)
     clear()
-<<<<<<< HEAD
-=======
     saveButton.classList.toggle("hidden")
->>>>>>> jacob-nguyen
 })
 
 function countdown() {
