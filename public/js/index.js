@@ -2,7 +2,7 @@
 
 // open save menu
 var saveButton = document.querySelector(".save-button")
-console.log(saveButton)
+var canDraw = false
 
 var cancelButton = document.getElementById("cancel")
 var confirmButton = document.getElementById("confirm")
@@ -11,7 +11,6 @@ var saveBack = document.getElementById("save-backdrop")
 var saveMenu = document.getElementById("save-menu-container")
 var saveItems = document.getElementById("save-menu-items")
 
-var titleName = document.getElementById("title-input")
 var authorName = document.getElementById("author-input")
 var canvas = document.getElementById("canvas")
 
@@ -56,35 +55,56 @@ cancelButton.addEventListener("click", function () {
 
 confirmButton.addEventListener("click", function () {
     // close, clear, and save the canvas/save menu
-    if (titleName.value === "" && authorName.value === "") {
-        alert("Both the author and title are empty.")
-    }
-    else if (titleName.value === "") {
-        alert("The title is empty.")
-    }
-    else if (authorName.value === "") {
-        alert("The author is empty.")
+    if (authorName.value === "") {
+        alert("Please enter an author name.")
     }
     else {
-        saveCanvas()
+        var authorr
+        var title = document.querySelector(".topic")
+        title.innerHTML.substr(6, title.innerHTML.length - 1)
+        var req = new XMLHttpRequest()
+        var reqUrl = "/home/addDrawing"
+        req.open('POST', reqUrl)
+        authorr = authorName.value
+        var newDrawing = {
+            title: title.innerHTML.substr(6, title.innerHTML.length - 1),
+            author: authorName.value,
+            drawing: canvas.toDataURL()
+        }
+        var reqBody = JSON.stringify(newDrawing)
+
+
+        req.setRequestHeader('Content-Type', 'application/json')
+        req.send(reqBody)
+
         closeSaveMenu()
+
+        var hiddenThings = document.querySelector('.drawing-window-container')
+        hiddenThings.classList.add('hidden')
+        toggleSelectedAll()
+        color = 'red'
+        var red = document.querySelector('.red')
+        red.classList.add('selected')
+        timeLeft = 30
+        clearInterval(timerId)
+        saveButton.classList.toggle("hidden")
+        var cardContainer = document.querySelector('.card-container')
+        var card = document.createElement('div')
+        card.classList.add('card')
+        card.classList.add('white')
+        card.innerHTML = '<img src="' + canvas.toDataURL() + '" class="drawing-drawing">' +
+                         '<p class="drawing-title">'+ title.innerHTML.substr(6, title.innerHTML.length - 1) +'</p>' +
+                         '<p class="drawing-author">by '+ authorr +'</p>'
+        cardContainer.prepend(card)
+        cardContainer.removeChild(cardContainer.lastChild)
     }
 })
-
-function saveCanvas() {
-    // save the canvas with the appropriate meta data
-    var drawing = canvas.toDataURL() // see saveCanvas() function below
-    var title = String(titleName.value)
-    var author = String(authorName.value)
-}
 
 function closeSaveMenu() {
     // clear and close save menu
     saveMenu.classList.add("hidden")
     saveBack.classList.add("hidden")
     saveItems.classList.add("hidden")
-
-    titleName.value = ""
     authorName.value = ""
 }
 
@@ -121,6 +141,7 @@ playButton.addEventListener('click', function () {
     timerId = setInterval(countdown, 1000)
     countdown()
     getTopic()
+    canDraw = true
 })
 
 var color = "red"
@@ -159,7 +180,7 @@ window.addEventListener('load', () => {
     let painting = false
 
     function startPosition(e) {
-        painting = true
+        if (canDraw) { painting = true }
         draw(e)
     }
 
@@ -191,6 +212,7 @@ window.addEventListener('load', () => {
     })
 })
 
+
 function clear() {
     const canvas = document.querySelector("#canvas") // grab the canvas
     const ctx = canvas.getContext('2d')
@@ -212,41 +234,18 @@ closeButton.addEventListener('click', function () {
     timeLeft = 30
     clearInterval(timerId)
     clear()
+<<<<<<< HEAD
+=======
+    saveButton.classList.toggle("hidden")
+>>>>>>> jacob-nguyen
 })
-
-function saveCanvas() {
-    var canvas = document.querySelector('#canvas')
-    if (window.navigator.msSaveBlob) {
-        window.navigator.msSaveBlob(canvas.msToBlob(), 'canvas-image.png')
-    } else {
-        const a = document.createElement('a')
-        document.body.appendChild(a)
-        a.href = canvas.toDataURL()
-        a.download = 'canvas-image.png'
-        a.click()
-        document.body.removeChild(a)
-    }
-}
-
-function addCard() {
-    var currCanvas
-
-    var canvas = document.querySelector('#canvas')
-    console.log(canvas)
-    var dataURI = canvas.toDataURL()
-    console.log(dataURI)
-
-    var cardContainer = document.querySelector('.card-container')
-    var card = document.createElement('div')
-    card.classList.add('card')
-    card.classList.add('white')
-    card.innerHTML = '<img src="' + dataURI + '" class="drawing-drawing"><p class="drawing-title">Title</p><p class="drawing-author">Author</p>'
-    cardContainer.appendChild(card)
-}
 
 function countdown() {
     if (timeLeft == -1) {
         clearTimeout(timerId)
+        canDraw = false
+        saveButton.classList.toggle("hidden")
+        openSaveMenu()
     } else {
         timer.innerHTML = timeLeft
         timeLeft--
@@ -255,7 +254,7 @@ function countdown() {
 }
 
 function getTopic() {
-    var dino = ["Trex", "Triceratops", "Velocoraptor"];
+    var dino = ["Trex", "Triceratops", "Velociraptor"];
     var pokemon = ["Pikachu", "Charmander", "Rowlett"];
     var topics = [dino, pokemon];
     //var btn = document.getElementById("draw-topic");

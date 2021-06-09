@@ -6,6 +6,10 @@ body {
     background-color: #f3f3f3ff;
 }
 
+.drawing-title {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
     color: #FFFFFF;

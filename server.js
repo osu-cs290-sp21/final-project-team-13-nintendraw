@@ -5,14 +5,6 @@ var fs = require('fs')
 
 var drawingData = require('./drawingData.json')
 
-var recentData = []
-function updateRecent() {
-    for (var i = 0; i < 5; i++) {
-        recentData.push(drawingData[drawingData.length-1-i])
-    }
-}
-updateRecent()
-
 var app = express()
 var port = 8000
 
@@ -26,16 +18,59 @@ app.engine("handlebars", exphbs({
 
 app.set("view engine", "handlebars")
 
-app.post("/home", function (req, res, next) {
-})
-
 app.get(["/", "/home"], function (req, res, next) {
+    var recentData = []
+    for (var i = 0; i < 5; i++) {
+        recentData[i] = drawingData[drawingData.length - 1 - i]
+    }
     res.status(200).render("home", {
         title: "Home",
         css: "style",
         js: "index",
         card: recentData
     })
+})
+
+// WRITING TO JSON FILE ////////////////////////////////////////////////////////
+function saveData() {
+    var newData = {
+        title: "Title",
+        author: "author",
+        drawing: "drawing"
+    }
+    drawingData.push(newData)
+    var data = JSON.stringify(drawingData, null, 4)
+    fs.writeFile('drawingData.json', data, function (err) {
+        if (err) {
+            console.log(err)
+            return
+        }
+    })
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+app.post("/home/addDrawing", function (req, res, next) {
+    if (req.body && req.body.title && req.body.author && req.body.drawing) {
+        res.status(200).send()
+
+        var newData = {
+            title: req.body.title,
+            author: req.body.author,
+            drawing: req.body.drawing
+        }
+        drawingData.push(newData)
+        var data = JSON.stringify(drawingData, null, 4)
+        fs.writeFile('drawingData.json', data, function (err) {
+            if (err) {
+                console.log(err)
+                return
+            }
+        })
+
+    } else {
+        res.status(400).send("Request needs JSON body with 'title', 'author', and 'drawing'.")
+    }
 })
 
 app.get("/gallery", function (req, res, next) {
