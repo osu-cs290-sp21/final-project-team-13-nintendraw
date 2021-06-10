@@ -251,12 +251,17 @@ function countdown() {
 }
 
 function getTopic() {
-    var dino = ["Trex", "Triceratops", "Velociraptor"];
-    var pokemon = ["Pikachu", "Charmander", "Rowlett"];
-    var topics = [dino, pokemon];
+    pokemon = ['Pikachu', 'Charmander', 'Rowlett', 'Mudkip', 'Squirtle','Bublbasaur','Litten','Chimchar'];
+    smash = ['Capt Falcon','Donky Kong',' Metaknight','Kirby','Mega Man','Cloud','Olimar','Dr. Mario','Game n Watch','King Dedede','Samus'];
+    mario = ['Mario','Peach','Capt Toad','Luigi','Yoshi','Bowser','Bower Jr','Goomba','Koopa','Wario','Waluigi'];
+    zelda = ['Link','Ganondorf','Zelda','Sheik','Chu','Midna','Tri-force','Master Sword','Hylian Sheild'];
+    sonic = ['Sonic','Knuckles','Tails','Shadow','Dr. Eggman'];
+    consoles = ['Wii','Switch','Famicom','NES','SNES','Nintendo 64','Wii U','Gameboy','Gameboy Advanced','DS','3DS','Game Cube','Virtual Boy','Game n Watch Handheld'];
+    misc = ['Tom Nook', 'Isabell', 'Rob'];
+    var topics = [pokemon,smash,zelda,sonic,consoles,misc];
     //var btn = document.getElementById("draw-topic");
     var min = Math.ceil(0);
-    var max = Math.floor(2);
+    var max = Math.floor(topics.length-1);
     var timer = document.getElementById("draw-topic");
     var tp = (Math.floor(Math.random() * (max - min) + min));
     //var whichTopic = topics[tp];

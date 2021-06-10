@@ -1,9 +1,14 @@
+/* html,body{
+    height:100%;
+} */
+
 body {
     /* color:rgb(138, 138, 138) ; */
+    height:100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    background-color:rgb(100, 100, 100);
+    background-color:#f3f3f3ff;
 }
 
 .drawing-title {
@@ -24,23 +29,25 @@ h1 {
     font-size: 48px;
     padding-top: 30px;
     padding-bottom: 30px;
+    font-weight: 700;
+
 }
 
 .title > a:nth-child(1) {
-border-left-width: 5px;
+border-left-width: 9px;
 border-left-style: solid;
-border-top-width: 5px;
+border-top-width: 9px;
 border-top-style: solid;
-border-right-width: 5px;
+border-right-width: 9px;
 border-right-style: solid;
-border-bottom-width: 5px;
+border-bottom-width: 9px;
 border-bottom-style: solid;
 border-radius:25px;
 padding-left: 15px;
 padding-right: 15px;
 }
 
-h1, h2, h3 {
+h2, h3 {
     font-weight: normal;
 }
 
@@ -107,6 +114,7 @@ a {
     height: 64px;
     width: 128px;
     font-size: 20px;
+    background-color: rgb(227, 227, 227);
 }
 
 .play-button:hover{
@@ -118,6 +126,7 @@ a {
     left:   100px;
     height: 75px;
     width: 120px;
+    box-shadow: 10px 10px 4px 2px rgba(0, 0, 255, .2);
 } 
 .navbar-clickable:hover, .title:hover, .clickable:hover, button:hover {   
     cursor: pointer;
@@ -136,19 +145,36 @@ a {
     margin: 10px;
     display: flex;
     flex-direction: column;
+    background-color:black ;
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
+
 }
 
-.recent-container, .gallery-container, .how-to-play {
-    border-left-width: 40px;
+.recent-container,.gallery-container,.how-to-play{
+    height:100%;
+    border-left-width: 50px;
     border-left-style: solid;
-    background-color: rgb(100, 100, 100);
-    border-color: rgb(100, 100, 100);
+    border-right-width: 50px;
+    border-right-style: solid;
+    border-right-color:crimson;
+    border-left-color:#15F4EE;
+    background-color:rgb(60, 60, 60);
+    text-align: center;
+    color:rgb(209, 209, 209)
 }
+
+.gallery-container,.how-to-play{
+    padding-top: 10px;
+}
+.recent-container > h2:nth-child(1) {
+    padding-top: 1px;
+    padding-top: 3px;
+    padding-top: 20px;
+    }
 
 #backdrop {
     background-color: rgb(0,0,0,25%);
@@ -163,18 +189,24 @@ a {
 }
 
 #drawing-window {
-    height: 600px;
-    width: 480px;
+    height: 680px;
+    width: 500px;
+    border:0px;
+    border-radius:15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-top: 0;
+    background-color: rgb(227, 227, 227);
 }
 
 #canvas {
-    border: 1px solid #c4c4c4;
+    border: 25px solid rgb(120, 120, 120) ;
+    background-color: white;
+    border-radius: 25px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom:5px;
 }
 
 .hidden {
@@ -191,11 +223,15 @@ a {
 }
 
 .color-palette {
+    border: 5px solid rgb(145, 145, 145);
+    border-radius: 15px;
+    background-color: rgb(145, 145, 145);
     display: flex;
     flex-wrap: wrap;
     width: 60%;
-    margin-left: auto;
+    margin-left: 20px;
     margin-top: 5px;
+    padding-top:5px;
 }
 
 .controls {
@@ -264,6 +300,8 @@ a {
 }
 
 .topic {
+    font-size: 30px;
+    text-align:center;
     margin-top: 20px;
     margin-left: 40px;
 }
@@ -291,11 +329,26 @@ a {
 }
 
 .other-control-items {
+    background-color: rgb(90, 90, 90);
     align-self: center;
 }
 
 .clear {
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-top-width: 20px;
+    border-top-style: solid;
+    border-right-width: 5px;
+    border-right-style: solid;
+    border-bottom-width: 20px;
+    border-bottom-style: solid;
+    text-align: center;
+    border-color: rgb(160,0,0);
+    background-color: rgb(160,0,0);
+    border-radius:50%;
     margin-bottom: 10px;
+    margin-left: 50px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .save-button {
@@ -339,12 +392,23 @@ button {
 
 
 .drawing-drawing {
-    width: 90%;
+    width:90%;
     margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
     align-self: center;
+    background-color: white;
+}
+
+.drawing-info{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    background-color: rgb(150,0,0);
 }
 
 .drawing-title,  .drawing-author {
+    color:black;
     margin: 0;
     margin-top: 10px;
     margin-left: 10px;
@@ -359,6 +423,7 @@ button {
 }
 
 .timer {
+    font-size:35px;
     text-align: center;
     margin-top: 5px;
 }
