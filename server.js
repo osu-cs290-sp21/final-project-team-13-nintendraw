@@ -32,21 +32,21 @@ app.get(["/", "/home"], function (req, res, next) {
 })
 
 // WRITING TO JSON FILE ////////////////////////////////////////////////////////
-function saveData() {
-    var newData = {
-        title: "Title",
-        author: "author",
-        drawing: "drawing"
-    }
-    drawingData.push(newData)
-    var data = JSON.stringify(drawingData, null, 4)
-    fs.writeFile('drawingData.json', data, function (err) {
-        if (err) {
-            console.log(err)
-            return
-        }
-    })
-}
+// function saveData() {
+//     var newData = {
+//         title: "Title",
+//         author: "author",
+//         drawing: "drawing"
+//     }
+//     drawingData.push(newData)
+//     var data = JSON.stringify(drawingData, null, 4)
+//     fs.writeFile('drawingData.json', data, function (err) {
+//         if (err) {
+//             console.log(err)
+//             return
+//         }
+//     })
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 

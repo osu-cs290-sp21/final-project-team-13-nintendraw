@@ -10,7 +10,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
     background-color:rgb(209,209,209);
-    padding-bottom: 50px;
 }
 
 .drawing-title {
@@ -33,8 +32,8 @@ h1 {
     text-align: center;
     box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
     font-size: 48px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     font-weight: 700;
 }
 
@@ -139,7 +138,7 @@ padding-top: 10px;
     border:2px solid rgb(145, 145, 145);
     background-color: rgb(145, 145, 145);
     box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
-    font-size:18px;
+    font-size:20px;
     width: 110px;
     padding-top: 5px;
     padding-bottom: 5px;
