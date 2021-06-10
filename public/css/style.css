@@ -1,6 +1,7 @@
-/* html,body{
+
+html,body{
     height:100%;
-} */
+}
 
 body {
     /* color:rgb(138, 138, 138) ; */
@@ -8,10 +9,11 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
-    background-color:#f3f3f3ff;
+    background-color:rgb(209,209,209);
 }
 
 .drawing-title {
+    background-color: rgb(150,0,0);
     font-weight: bold;
 }
 
@@ -75,10 +77,11 @@ a {
     padding-right: 25px;
     list-style-type: none;
     display: flex;
-   
+    margin-left: 25px;
 }
 
 .navbar-item {
+    font-weight: 200;
     padding: 8px;
     padding-bottom: 16px;
 }
@@ -86,6 +89,8 @@ a {
 .navbar-item.active {
     background-color: rgb(150,0,0);
   }
+
+ 
 
 .navbar-search {
     padding: 0;
@@ -128,7 +133,27 @@ a {
     width: 120px;
     box-shadow: 10px 10px 4px 2px rgba(0, 0, 255, .2);
 } 
-.navbar-clickable:hover, .title:hover, .clickable:hover, button:hover {   
+
+.navbar-clickable{
+    border:2px solid rgb(145, 145, 145);
+    background-color: rgb(145, 145, 145);
+    box-shadow: 5px 5px 2px rgb(60, 60, 60);
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size:25px;
+    font-weight: 150;
+}
+
+.title:hover{
+    cursor: pointer;
+}
+
+.navbar-clickable:hover {   
+    color:rgb(150,0,0);
+    cursor: pointer;
+}
+
+.clickable:hover, button:hover {   
     cursor: pointer;
 }
 
@@ -143,6 +168,7 @@ a {
     min-width: 240px;
     min-height: 300px;
     margin: 10px;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     background-color:black ;
@@ -155,7 +181,8 @@ a {
 }
 
 .recent-container,.gallery-container,.how-to-play{
-    height:100%;
+    margin:10px;
+    padding: 10px;
     border-left-width: 50px;
     border-left-style: solid;
     border-right-width: 50px;
@@ -163,11 +190,24 @@ a {
     border-right-color:crimson;
     border-left-color:#15F4EE;
     background-color:rgb(60, 60, 60);
+    border-radius: 15px;
     text-align: center;
     color:rgb(209, 209, 209)
 }
+.recent-container{
+    margin:20px;
+    align-content: center;
+}
+
+.how-to-play{
+    text-align: left;
+    padding-left:30px;
+}
 
 .gallery-container,.how-to-play{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height:90%;
     padding-top: 10px;
 }
 .recent-container > h2:nth-child(1) {
@@ -189,6 +229,7 @@ a {
 }
 
 #drawing-window {
+    font-family: 'Press Start 2P', cursive;
     height: 680px;
     width: 500px;
     border:0px;
@@ -203,7 +244,7 @@ a {
 #canvas {
     border: 25px solid rgb(120, 120, 120) ;
     background-color: white;
-    border-radius: 25px;
+    border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom:5px;
@@ -218,7 +259,7 @@ a {
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    margin: 2%;
+    margin: 3%;
     box-shadow: 3px 3px 5px rgb(0,0,0,25%);
 }
 
@@ -300,7 +341,7 @@ a {
 }
 
 .topic {
-    font-size: 30px;
+    font-size: 20px;
     text-align:center;
     margin-top: 20px;
     margin-left: 40px;
@@ -334,13 +375,14 @@ a {
 }
 
 .clear {
-    border-left-width: 5px;
+    font-size: 15px;;
+    border-left-width: 10px;
     border-left-style: solid;
-    border-top-width: 20px;
+    border-top-width: 30px;
     border-top-style: solid;
-    border-right-width: 5px;
+    border-right-width: 10px;
     border-right-style: solid;
-    border-bottom-width: 20px;
+    border-bottom-width: 30px;
     border-bottom-style: solid;
     text-align: center;
     border-color: rgb(160,0,0);
@@ -349,6 +391,10 @@ a {
     margin-bottom: 10px;
     margin-left: 50px;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.clear:hover{
+    color:rgb(209,209,209);
 }
 
 .save-button {
@@ -429,10 +475,11 @@ button {
 }
 
 .close { /* better to use absolute positioning */
+    margin-top: 5px;
+    margin-right: 10px;
     position: absolute;
     right: 0;
     top: 0;
-    margin-right: 5px;
 }
 
 /*Warning prompt*/
@@ -480,13 +527,10 @@ button {
 }
 
 #yes {
-    background-color: green;
+    background-color: lightgreen;
 }
 
 #no {
     background-color: red;
 }
 
-.prompt-item {
-
-}

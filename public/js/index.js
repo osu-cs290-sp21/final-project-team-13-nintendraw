@@ -197,10 +197,10 @@ window.addEventListener('load', () => {
         ctx.lineCap = "round"
         ctx.strokeStyle = color
 
-        ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
+        ctx.lineTo(e.clientX - canvas.offsetLeft-25, e.clientY - canvas.offsetTop-25)
         ctx.stroke()
         ctx.beginPath()
-        ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop)
+        ctx.moveTo(e.clientX - canvas.offsetLeft-25, e.clientY - canvas.offsetTop-25)
     }
 
     canvas.addEventListener('mousedown', startPosition)
