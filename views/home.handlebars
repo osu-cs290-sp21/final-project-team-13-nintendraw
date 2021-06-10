@@ -1,13 +1,15 @@
 <div class="play-button-container">
-    <button class="play-button white">D R A W</button>
+    <button class="play-button">D R A W</button>
 </div>
 <div class="recent-container">
     <h2>R E C E N T</h2>
-<div class="card-container">
-    {{#each card}}
-        {{> drawDisplay}}
-    {{/each}}
-</div>
+    <div class="wrap">
+        <div class="card-container">
+            {{#each card}}
+            {{> drawDisplay}}
+            {{/each}}
+        </div>
+    </div>
 </div>
 <div class="drawing-window-container hidden">
     <div id="backdrop">
@@ -66,7 +68,7 @@
         <div id="prompt" class="prompt-item">
             Are you sure you want to quit?
             <br>
-            Your drawing will not be saved
+            Your drawing will not be saved.
         </div>
         <button id="yes" class="prompt-button">Yes</button>
         <button id="no" class="prompt-button">No</button>

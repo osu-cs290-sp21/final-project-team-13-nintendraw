@@ -77,7 +77,7 @@ app.get("/gallery", function (req, res, next) {
     res.status(200).render("gallery", {
         title: "Gallery",
         css: "style",
-		js: "index",
+		js: "search",
         card: drawingData,
     })
 })

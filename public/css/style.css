@@ -13,8 +13,11 @@ body {
 }
 
 .drawing-title {
-    background-color: rgb(150,0,0);
     font-weight: bold;
+}
+.drawing-info {
+    text-align: left;
+    border-radius: 0 0 25px 25px;
 }
 
 a {
@@ -23,16 +26,15 @@ a {
 }
 
 h1 {
-    color: rgb(209, 209, 209) ;
-    background-color: rgb(150,0,0);
+    color: white ;
+    background-color: rgb(160,0,0);
     margin: 0;
     text-align: center;
-    box-shadow: 0px 3px 5px rgb(0,0,0,25%);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
     font-size: 48px;
     padding-top: 30px;
     padding-bottom: 30px;
     font-weight: 700;
-
 }
 
 .title > a:nth-child(1) {
@@ -55,6 +57,7 @@ h2, h3 {
 
 h2 {
     font-size: 28px;
+    margin: 20px;
 }
 
 header {
@@ -70,30 +73,28 @@ a {
     margin: 0;
     padding: 0;
     background-color: rgb(90, 90, 90);
+    z-index: 3;
 }
 
 .navbar {
     margin:0;
-    padding-right: 25px;
+    margin-right: 25px;
+    padding-right: 40px;
     list-style-type: none;
     display: flex;
     margin-left: 25px;
 }
 
 .navbar-item {
-    font-weight: 200;
-    padding: 8px;
-    padding-bottom: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
 }
 
-.navbar-item.active {
-    background-color: rgb(150,0,0);
-  }
-
-
-
 .navbar-search {
-    padding: 0;
+padding-top: 10px;
     list-style-type: none;
     display: flex;
     height: 100%;
@@ -104,6 +105,9 @@ a {
     margin-left: auto;
 }
 
+.search {
+    padding-top: 15px;
+}
 
 .play-button-container {
     display: flex;
@@ -113,35 +117,32 @@ a {
 }
 
 .play-button {
-    color: #666666;
+    color: rgb(90, 90, 90);
     border: none;
-    border-radius:15px;
+    border-radius:12px;
     height: 64px;
     width: 128px;
     font-size: 20px;
-    background-color: rgb(227, 227, 227);
+    background-color: white;
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
 }
 
 .play-button:hover{
     background-color:rgb(160,0,0);
-    color:rgb(209, 209, 209);
+    color:white;
     cursor: pointer;
-    right: 100px;
-    bottom: 100px;
-    left:   100px;
-    height: 75px;
-    width: 120px;
-    box-shadow: 10px 10px 4px 2px rgba(0, 0, 255, .2);
+    box-shadow: none;
 }
 
 .navbar-clickable{
     border:2px solid rgb(145, 145, 145);
     background-color: rgb(145, 145, 145);
-    box-shadow: 5px 5px 2px rgb(60, 60, 60);
-    margin-left: 5px;
-    margin-right: 5px;
-    font-size:25px;
-    font-weight: 150;
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
+    font-size:18px;
+    width: 110px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
 }
 
 .title:hover{
@@ -149,8 +150,9 @@ a {
 }
 
 .navbar-clickable:hover {
-    color:rgb(150,0,0);
+    color:rgb(160,0,0);
     cursor: pointer;
+    box-shadow: none;
 }
 
 .clickable:hover, button:hover {
@@ -158,7 +160,7 @@ a {
 }
 
 .white {
-    box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
     background-color: white;
 }
 
@@ -167,21 +169,26 @@ a {
     height: 300px;
     min-width: 240px;
     min-height: 300px;
-    margin: 10px;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    background-color:black ;
+    border: 15px solid black;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 1em;
+    background-color: rgb(160,0,0);
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-
+    text-align: center;
 }
 
-.recent-container,.gallery-container,.how-to-play{
-    margin:10px;
+.wrap {
+    margin: auto;
+}
+
+.recent-container,.gallery-container{
+    margin: 25px;
     padding: 10px;
     border-left-width: 50px;
     border-left-style: solid;
@@ -191,33 +198,46 @@ a {
     border-left-color:#15F4EE;
     background-color:rgb(60, 60, 60);
     border-radius: 15px;
-    text-align: center;
-    color:rgb(209, 209, 209)
-}
-.recent-container{
-    margin:20px;
-    align-content: center;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 7px 5px 5px rgba(0,0,0, 50%);
 }
 
 .how-to-play{
-    text-align: left;
-    padding-left:30px;
+    margin: 15px;
+    padding: 10px;
+    border-left-width: 50px;
+    border-left-style: solid;
+    border-right-width: 50px;
+    border-right-style: solid;
+    border-right-color:rgb(209,209,209);
+    border-left-color:rgb(209,209,209);
+    background-color:rgb(209,209,209);
+    border-radius: 15px;
+    color:rgb(60,60, 60);
+    display: flex;
+    flex-direction: column;
 }
 
-.gallery-container,.how-to-play{
+.gallery-container {
+    margin-top: 50px;
+}
+
+/* .gallery-container,.how-to-play{
     margin-bottom: 20px;
     margin-top: 20px;
     height:90%;
     padding-top: 10px;
-}
-.recent-container > h2:nth-child(1) {
+} */
+/* .recent-container > h2:nth-child(1) {
     padding-top: 1px;
     padding-top: 3px;
     padding-top: 20px;
-    }
+    } */
 
 #backdrop {
-    background-color: rgb(0,0,0,25%);
+    background-color: rgb(0,0,0,50%);
     top: 0;
     left: 0;
     right: 0;
@@ -242,7 +262,7 @@ a {
 }
 
 #canvas {
-    border: 25px solid rgb(120, 120, 120) ;
+    border: 25px solid rgb(145, 145, 145) ;
     background-color: white;
     border-radius: 15px;
     margin-left: auto;
@@ -260,7 +280,7 @@ a {
     height: 30px;
     width: 30px;
     margin: 3%;
-    box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
 }
 
 .color-palette {
@@ -270,22 +290,20 @@ a {
     display: flex;
     flex-wrap: wrap;
     width: 60%;
-    margin-left: 20px;
-    margin-top: 5px;
+    margin-left: 25px;
+    margin-top: 10px;
     padding-top:5px;
 }
 
 .controls {
     display: flex;
-    padding-bottom: 30px;
+    padding-bottom: 25px;
 }
 
 .other-controls {
     align-self: center;
-    margin-right: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-self: center;
 }
 
 .red {
@@ -337,7 +355,7 @@ a {
 }
 
 .selected {
-    box-shadow: 0px 0px 5px 7px rgb(0,0,0,40%);
+    box-shadow: 0px 0px 5px 7px rgb(0,0,0,50%);
 }
 
 .topic {
@@ -345,6 +363,7 @@ a {
     text-align:center;
     margin-top: 20px;
     margin-left: 40px;
+    margin-bottom: 5px;
 }
 
 .error-container{
@@ -375,12 +394,21 @@ a {
 }
 
 .clear {
-    font-size: 15px;;
-    border-left-width: 10px;
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
+    font-size: 12px;
+    text-align: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    line-height: 75px;
+    background-color: rgb(179, 0, 90);
+    margin-left: 30px;
+    /* font-size: 15px;
+    border-left-width: 30px;
     border-left-style: solid;
     border-top-width: 30px;
     border-top-style: solid;
-    border-right-width: 10px;
+    border-right-width: 30px;
     border-right-style: solid;
     border-bottom-width: 30px;
     border-bottom-style: solid;
@@ -390,11 +418,12 @@ a {
     border-radius:50%;
     margin-bottom: 10px;
     margin-left: 50px;
-    box-shadow: 5px 5px 2px 1px rgba(0, 0, 255, .2);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%); */
 }
 
 .clear:hover{
-    color:rgb(209,209,209);
+    color:white;
+    box-shadow: none;
 }
 
 .save-button {
@@ -407,7 +436,7 @@ button {
     color: #666666;
 }
 
-#navbar-search-input {
+#navbar-search-input, .gallery-search-input {
     padding: 4px;
     font-size: 16px;
     background-color: #eee;
@@ -417,19 +446,19 @@ button {
     background-color:rgb(209, 209, 209);
 }
 
-#navbar-search-input:focus {
+#navbar-search-input:focus, .gallery-search-input:focus {
     outline: none;
     background-color: #fff;
 }
 
-#navbar-search-button {
+#navbar-search-button, .gallery-search-button {
     background: none;
     border: none;
     color:rgb(209, 209, 209);
 }
 
-#navbar-search-button:hover{
-    color:rgb(150,0,0);
+#navbar-search-button:hover, .gallery-search-button:hover{
+    color:rgb(160,0,0);
 }
 
 .fas{
@@ -438,26 +467,21 @@ button {
 
 
 .drawing-drawing {
-    width:90%;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    width:100%;
     align-self: center;
     background-color: white;
-}
-
-.drawing-info{
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 5px;
-    background-color: rgb(150,0,0);
+    border-radius: 10px 10px 0 0;
 }
 
 .drawing-title,  .drawing-author {
-    color:black;
-    margin: 0;
-    margin-top: 10px;
+    color:white;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 10px;
+}
+
+.drawing-author {
+    font-size: 80%;
 }
 
 
@@ -485,7 +509,7 @@ button {
 /*Warning prompt*/
 
 #confirm-backdrop {
-    background-color: rgb(0,0,0,30%);
+    background-color:rgb(0,0,0,50%);;
     top: 0;
     left: 0;
     right: 0;
@@ -497,14 +521,13 @@ button {
 #confirm-menu-container {
     padding: 15px;
     border-radius: 25px;
-    background-color: #EDEDED;
+    background-color:rgb(227, 227, 227);
     z-index: 2;
     position: fixed;
-    left: 50%;
     top: 50%;
-    margin-top: -220px;
-    margin-left: -175px;
-    box-shadow: 3px 3px 5px rgb(0,0,0,25%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
 }
 
 #confirm-menu-items {
@@ -527,20 +550,20 @@ button {
     border: 0px;
     border-radius: 100%;
     color:  white;
-    box-shadow: 0px 3px 5px rgb(0,0,0,25%);
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 50%);
 }
 
 .prompt-button:hover{
-    box-shadow: 0px 3px 5px rgb(0,0,0,50%);
+    box-shadow: none;
 }
 
 #yes {
-    background-color: lightgreen;
+    background-color: rgb(0, 187, 0);
 }
 
 #yes:hover {
     background-color: white;
-    color: green;
+    color: rgb(0, 187, 0);
 }
 
 #no {
@@ -552,6 +575,7 @@ button {
     color: red;
 }
 
-.prompt-item {
-
+.gallery-search {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,16 +1,16 @@
-var drawingSearch = document.getElementById("navbar-search-input")
-var drawingSearchButton = document.getElementById("navbar-search-button")
-drawingSearchButton.addEventListener('click', search);
-drawingSearch.addEventListener('keyup', search);
-function search(event) {
-    var drawings = document.getElementsByClassName('card white');
-    for (i = 0; i < 3; i++) {
-        if ((drawings[i].childNodes[1].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase())) || (drawings[i].childNodes[3].childNodes[0].textContent.toUpperCase().includes(drawingSearch.value.toUpperCase()))) {
-            drawings[i].classList.remove('hidden');
+var galSearch = document.querySelector('.gallery-search-input')
+var galSearchButton = document.querySelector('.gallery-search-button')
+galSearchButton.addEventListener('click', search2)
+function search2(event) {
+    var drawinginfo = document.getElementsByClassName('drawing-info');
+    var cardw = document.getElementsByClassName('card white');
+    for (i = 0; i < cardw.length; i++) {
+        if ((drawinginfo[i].childNodes[1].textContent.toUpperCase().includes(galSearch.value.toUpperCase())) || (drawinginfo[i].childNodes[3].textContent.toUpperCase().includes(galSearch.value.toUpperCase()))) {
+            cardw[i].classList.remove('hidden');
             continue;
         }
         else {
-            drawings[i].classList.add('hidden');
+            cardw[i].classList.add('hidden');
         }
     }
 }

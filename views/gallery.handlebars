@@ -1,14 +1,16 @@
 <main class="gallery-container">
-
-    <h2>G A L L E R Y</h2>
-
-
-    <div class="card-container">
-<div class="card-container">
-    {{#each card}}
-        {{> drawDisplay}}
-    {{/each}}
-</div>
+<div class="gallery-search">
+    <h2 class="gallery-title">G A L L E R Y</h2>
+<div class="search">
+        <input type="text" class="gallery-search-input" placeholder="Search...">
+        <button type="submit" class="gallery-search-button"><i class="fa fa-search"></i></button>
+    </div></div>
+    <div class="wrap">
+        <div class="card-container">
+            {{#each card}}
+            {{> drawDisplay}}
+            {{/each}}
+        </div>
     </div>
 
 </main>

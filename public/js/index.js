@@ -19,21 +19,36 @@ var drawinginfoearchButton = document.getElementById("navbar-search-button")
 drawinginfoearchButton.addEventListener('click', search);
 //drawinginfoearch.addEventListener('keyup', search);
 function search(event) {
-	var drawinginfo = document.getElementsByClassName('drawing-info');
-	var cardw = document.getElementsByClassName('card white');
-	for (i = 0; i < 8; i++) {
-
-		if ((drawinginfo[i].childNodes[1].textContent.toUpperCase().includes(drawinginfoearch.value.toUpperCase())) || (drawinginfo[i].childNodes[3].textContent.toUpperCase().includes(drawinginfoearch.value.toUpperCase()))) {
-			cardw[i].classList.remove('hidden');
-			continue;
-		}
-		else {
-			cardw[i].classList.add('hidden');
-		}
-	}
-
-
+    var drawinginfo = document.getElementsByClassName('drawing-info');
+    var cardw = document.getElementsByClassName('card white');
+    for (i = 0; i < cardw.length; i++) {
+        if ((drawinginfo[i].childNodes[1].textContent.toUpperCase().includes(drawinginfoearch.value.toUpperCase())) || (drawinginfo[i].childNodes[3].textContent.toUpperCase().includes(drawinginfoearch.value.toUpperCase()))) {
+            cardw[i].classList.remove('hidden');
+            continue;
+        }
+        else {
+            cardw[i].classList.add('hidden');
+        }
+    }
 }
+
+// var galSearch = document.querySelector('.gallery-search-input')
+// var galSearchButton = document.querySelector('.gallery-search-button')
+// galSearchButton.addEventListener('click', search2)
+// function search2(event) {
+//     var drawinginfo = document.getElementsByClassName('drawing-info');
+//     var cardw = document.getElementsByClassName('card white');
+//     for (i = 0; i < cardw.length; i++) {
+//         if ((drawinginfo[i].childNodes[1].textContent.toUpperCase().includes(galSearch.value.toUpperCase())) || (drawinginfo[i].childNodes[3].textContent.toUpperCase().includes(galSearch.value.toUpperCase()))) {
+//             cardw[i].classList.remove('hidden');
+//             continue;
+//         }
+//         else {
+//             cardw[i].classList.add('hidden');
+//         }
+//     }
+// }
+
 saveButton.addEventListener('click', function () {
     // open save menu
     saveMenu.classList.toggle("hidden")
@@ -78,7 +93,6 @@ confirmButton.addEventListener("click", function () {
         req.send(reqBody)
 
         closeSaveMenu()
-
         var hiddenThings = document.querySelector('.drawing-window-container')
         hiddenThings.classList.add('hidden')
         toggleSelectedAll()
@@ -89,16 +103,31 @@ confirmButton.addEventListener("click", function () {
         clearInterval(timerId)
         // saveButton.classList.toggle("hidden")
         var cardContainer = document.querySelector('.card-container')
+        console.log(cardContainer)
+
         var card = document.createElement('div')
         card.classList.add('card')
         card.classList.add('white')
         card.innerHTML = '<img src="' + canvas.toDataURL() + '" class="drawing-drawing">' +
-                         '<p class="drawing-title">'+ title.innerHTML.substr(6, title.innerHTML.length - 1) +'</p>' +
-                         '<p class="drawing-author">by '+ authorr +'</p>'
+            '<div class="drawing-info">' +
+            '<p class="drawing-title">' + title.innerHTML.substr(6, title.innerHTML.length - 1) + '</p>' +
+            '<p class="drawing-author">by ' + authorr + '</p></div>'
         cardContainer.prepend(card)
         cardContainer.removeChild(cardContainer.lastChild)
+        cardContainer.removeChild(cardContainer.lastChild)
+        clear()
     }
 })
+
+/*
+<div class="card white">
+    <img src="{{drawing}}" class="drawing-drawing">
+    <div class="drawing-info">
+        <p class="drawing-title">{{title}}</p>
+        <p class="drawing-author">by {{author}}</p>
+    </div>
+</div>
+*/
 
 function closeSaveMenu() {
     // clear and close save menu
@@ -136,7 +165,7 @@ var playButton = document.querySelector('.play-button')
 
 
 playButton.addEventListener('click', function () {
-    var hiddenThings = document.querySelector('.hidden')
+    var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.toggle('hidden')
     timerId = setInterval(countdown, 1000)
     countdown()
@@ -197,7 +226,7 @@ window.addEventListener('load', () => {
         ctx.lineCap = "round"
         ctx.strokeStyle = color
 
-        ctx.lineTo(e.clientX - canvas.offsetLeft - 25 , e.clientY - canvas.offsetTop - 25 )
+        ctx.lineTo(e.clientX - canvas.offsetLeft - 25, e.clientY - canvas.offsetTop - 25)
         ctx.stroke()
         ctx.beginPath()
         ctx.moveTo(e.clientX - canvas.offsetLeft - 25, e.clientY - canvas.offsetTop - 25)
@@ -221,7 +250,7 @@ function clear() {
 }
 
 var clearButton = document.querySelector('.clear')
-clearButton.addEventListener('click', function() {
+clearButton.addEventListener('click', function () {
     if (canDraw) {
         clear()
     }
@@ -251,7 +280,7 @@ closeButton.addEventListener('click', function () {
     // saveButton.classList.toggle("hidden")
 })
 
-yes.addEventListener("click", function() {
+yes.addEventListener("click", function () {
     var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.add('hidden')
     clear()
@@ -262,7 +291,7 @@ yes.addEventListener("click", function() {
     clearInterval(timerId)
 })
 
-no.addEventListener("click", function() {
+no.addEventListener("click", function () {
     promptContainer.classList.toggle("hidden")
     promptItems.classList.toggle("hidden")
     promptBackground.classList.toggle("hidden")
@@ -282,17 +311,17 @@ function countdown() {
 }
 
 function getTopic() {
-    pokemon = ['Pikachu', 'Charmander', 'Rowlett', 'Mudkip', 'Squirtle','Bublbasaur','Litten','Chimchar'];
-    smash = ['Capt Falcon','Donky Kong',' Metaknight','Kirby','Mega Man','Cloud','Olimar','Dr. Mario','Game n Watch','King Dedede','Samus'];
-    mario = ['Mario','Peach','Capt Toad','Luigi','Yoshi','Bowser','Bower Jr','Goomba','Koopa','Wario','Waluigi'];
-    zelda = ['Link','Ganondorf','Zelda','Sheik','Chu','Midna','Tri-force','Master Sword','Hylian Sheild'];
-    sonic = ['Sonic','Knuckles','Tails','Shadow','Dr. Eggman'];
-    consoles = ['Wii','Switch','Famicom','NES','SNES','Nintendo 64','Wii U','Gameboy','Gameboy Advanced','DS','3DS','Game Cube','Virtual Boy','Game n Watch Handheld'];
+    pokemon = ['Pikachu', 'Charmander', 'Rowlett', 'Mudkip', 'Squirtle', 'Bulbasaur', 'Litten', 'Chimchar'];
+    smash = ['Capt Falcon', 'Donky Kong', ' Metaknight', 'Kirby', 'Mega Man', 'Cloud', 'Olimar', 'Dr. Mario', 'Game n Watch', 'King Dedede', 'Samus'];
+    mario = ['Mario', 'Peach', 'Capt Toad', 'Luigi', 'Yoshi', 'Bowser', 'Bower Jr', 'Goomba', 'Koopa', 'Wario', 'Waluigi'];
+    zelda = ['Link', 'Ganondorf', 'Zelda', 'Sheik', 'Chu', 'Midna', 'Tri-force', 'Master Sword', 'Hylian Sheild'];
+    sonic = ['Sonic', 'Knuckles', 'Tails', 'Shadow', 'Dr. Eggman'];
+    consoles = ['Wii', 'Switch', 'Famicom', 'NES', 'SNES', 'Nintendo 64', 'Wii U', 'Gameboy', 'Gameboy Advanced', 'DS', '3DS', 'Game Cube', 'Virtual Boy'];
     misc = ['Tom Nook', 'Isabell', 'Rob'];
-    var topics = [pokemon,smash,zelda,sonic,consoles,misc];
+    var topics = [pokemon, smash, zelda, sonic, consoles, misc];
     //var btn = document.getElementById("draw-topic");
     var min = Math.ceil(0);
-    var max = Math.floor(topics.length-1);
+    var max = Math.floor(topics.length - 1);
     var timer = document.getElementById("draw-topic");
     var tp = (Math.floor(Math.random() * (max - min) + min));
     //var whichTopic = topics[tp];
