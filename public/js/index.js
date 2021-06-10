@@ -87,7 +87,7 @@ confirmButton.addEventListener("click", function () {
         red.classList.add('selected')
         timeLeft = 30
         clearInterval(timerId)
-        saveButton.classList.toggle("hidden")
+        // saveButton.classList.toggle("hidden")
         var cardContainer = document.querySelector('.card-container')
         var card = document.createElement('div')
         card.classList.add('card')
@@ -221,27 +221,58 @@ function clear() {
 }
 
 var clearButton = document.querySelector('.clear')
-clearButton.addEventListener('click', clear)
+clearButton.addEventListener('click', function() {
+    if (canDraw) {
+        clear()
+    }
+})
+
+var yes = document.getElementById("yes")
+var no = document.getElementById("no")
+var promptContainer = document.getElementById("confirm-menu-container")
+var promptItems = document.getElementById("confirm-menu-items")
+var promptBackground = document.getElementById("confirm-backdrop")
 
 var closeButton = document.querySelector('.close')
 closeButton.addEventListener('click', function () {
     var hiddenThings = document.querySelector('.drawing-window-container')
-    hiddenThings.classList.add('hidden')
+    // hiddenThings.classList.add('hidden')
     toggleSelectedAll()
     color = 'red'
     var red = document.querySelector('.red')
     red.classList.add('selected')
+    // timeLeft = 30
+    // clearInterval(timerId)
+    // clear()
+
+    promptContainer.classList.toggle("hidden")
+    promptItems.classList.toggle("hidden")
+    promptBackground.classList.toggle("hidden")
+    // saveButton.classList.toggle("hidden")
+})
+
+yes.addEventListener("click", function() {
+    var hiddenThings = document.querySelector('.drawing-window-container')
+    hiddenThings.classList.add('hidden')
+    clear()
+    promptContainer.classList.toggle("hidden")
+    promptItems.classList.toggle("hidden")
+    promptBackground.classList.toggle("hidden")
     timeLeft = 30
     clearInterval(timerId)
-    clear()
-    saveButton.classList.toggle("hidden")
+})
+
+no.addEventListener("click", function() {
+    promptContainer.classList.toggle("hidden")
+    promptItems.classList.toggle("hidden")
+    promptBackground.classList.toggle("hidden")
 })
 
 function countdown() {
     if (timeLeft == -1) {
         clearTimeout(timerId)
         canDraw = false
-        saveButton.classList.toggle("hidden")
+        // saveButton.classList.toggle("hidden")
         openSaveMenu()
     } else {
         timer.innerHTML = timeLeft
