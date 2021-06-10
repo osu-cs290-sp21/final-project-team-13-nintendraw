@@ -78,7 +78,7 @@ app.get("/gallery", function (req, res, next) {
         title: "Gallery",
         css: "style",
 		js: "index",
-        card: drawingData
+        card: drawingData,
     })
 })
 
