@@ -284,6 +284,11 @@ closeButton.addEventListener('click', function () {
 })
 
 yes.addEventListener("click", function () {
+    saveButton.classList.add('hidden')
+    clearButton.classList.remove('hidden')
+    saveMenu.classList.add("hidden")
+    saveBack.classList.add("hidden")
+    saveItems.classList.add("hidden")
     var hiddenThings = document.querySelector('.drawing-window-container')
     hiddenThings.classList.add('hidden')
     clear()
