@@ -1,6 +1,7 @@
 // canvas saving
 
 // open save menu
+var clearButton = document.querySelector(".clear")
 var saveButton = document.querySelector(".save-button")
 var canDraw = false
 
@@ -74,6 +75,8 @@ confirmButton.addEventListener("click", function () {
         alert("Please enter an author name.")
     }
     else {
+        saveButton.classList.toggle('hidden')
+        clearButton.classList.remove('hidden')
         var authorr
         var title = document.querySelector(".topic")
         title.innerHTML.substr(6, title.innerHTML.length - 1)
@@ -301,6 +304,8 @@ function countdown() {
     if (timeLeft == -1) {
         clearTimeout(timerId)
         canDraw = false
+        saveButton.classList.remove('hidden')
+        clearButton.classList.toggle('hidden')
         // saveButton.classList.toggle("hidden")
         openSaveMenu()
     } else {

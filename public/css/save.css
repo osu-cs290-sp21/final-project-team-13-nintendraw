@@ -2,7 +2,8 @@
 
 #save-menu-container {
     padding: 10px;
-    background-color: white;
+    background-color: rgb(227, 227, 227);
+    border-radius:15px;
     z-index: 2;
     position: fixed;
     left: 50%;
@@ -44,7 +45,14 @@
 
 #author-input {
     grid-area: author-input;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color:rgb(209, 209, 209);
 
+}
+
+#author-input:focus {
+    background-color: #fff;
 }
 
 .save-item {
@@ -53,14 +61,25 @@
 
 #confirm {
     grid-area: confirm;
-    margin: 10px;
-    width: 100px;
-    justify-self: center;
+    background-color: rgb(133, 48, 245);
 }
 
 #cancel {
     grid-area: cancel;
+    background-color: rgb(189, 138, 255);
+}
+
+#confirm, #cancel {
     margin: 10px;
     width: 100px;
+    height: 25px;
     justify-self: center;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 3px 4px 4px 2px rgba(0,0,0, 40%);
+    border: none;
+}
+
+#confirm:hover, #cancel:hover {
+    box-shadow: none;
 }
