@@ -536,7 +536,7 @@ button {
 
 #confirm-menu-container {
     padding: 15px;
-    border-radius: 25px;
+    border-radius: 15px;
     background-color:rgb(227, 227, 227);
     z-index: 2;
     position: fixed;
